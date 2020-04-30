@@ -25,7 +25,11 @@ install:
 
 before_script:
   #- cp .env.example .env
-  - npm run build
+  # - npm run build
+  - |
+    if [[ $TRAVIS_TAG != "" ]]; then
+      npm run build;
+    fi
 
 script:
   # - npm run generate
