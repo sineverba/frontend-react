@@ -1,8 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import Footer from "./js/components/Footer";
 
 function App() {
   return (
+    <>
     <Container>
       <Row>
         <Col>
@@ -10,6 +12,8 @@ function App() {
         </Col>
       </Row>
     </Container>
+    <Footer />
+    </>
   );
 }
 
