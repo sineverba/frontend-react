@@ -18,7 +18,7 @@ export class Footer extends Component {
         <Container>
           <Row>
             <Col>
-              <p>Backend Api Version: {this.props.apiVersion ? this.props.apiVersion : 'N.D.'}</p>
+              <p>Backend Api Version: {this.props.apiVersion ? this.props.apiVersion : 'N.D.'} - Frontend Version: 0.1.0</p>
             </Col>
           </Row>
         </Container>

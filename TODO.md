@@ -1,3 +1,4 @@
++ Move FE version in store
 + Add GH stuffes
 + Add axios
 + Add Try / Catch
