@@ -9,3 +9,9 @@ export function fetchBackendApiVersion() {
     });
   };
 }
+
+export function fetchFrontendApiVersion() {
+  return function(dispatch) {
+    return null;
+  }
+}
