@@ -31,9 +31,11 @@ script:
   # - npm run start & wait-on http://localhost:3000
   # - npx cypress run --config video=false
   - kill $(jobs -p) || true
+  - echo "No test, OK"
 
 after_success:
   #- |
   #  if [[ $TRAVIS_TAG != "" ]]; then
   #    netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./dist;
   #  fi
+  - netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./dist;
