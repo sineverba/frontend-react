@@ -15,12 +15,13 @@ cache:
     - ~/.cache
 
 install:
-  - npm install wait-on
-  - npm install netlify-cli -g;
-  #- |
-  #  if [[ $TRAVIS_TAG != "" ]]; then
-  #    npm install netlify-cli -g;
-  #  fi
+  #- npm install wait-on
+  - npm install
+  # - npm install netlify-cli -g;
+  - |
+    if [[ $TRAVIS_TAG != "" ]]; then
+      npm install netlify-cli -g;
+    fi
 
 before_script:
   #- cp .env.example .env
@@ -30,12 +31,12 @@ script:
   # - npm run generate
   # - npm run start & wait-on http://localhost:3000
   # - npx cypress run --config video=false
-  - kill $(jobs -p) || true
+  # - kill $(jobs -p) || true
   - echo "No test, OK"
 
 after_success:
-  #- |
-  #  if [[ $TRAVIS_TAG != "" ]]; then
-  #    netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build;
-  #  fi
-  - netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build;
+  - |
+    if [[ $TRAVIS_TAG != "" ]]; then
+      netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build;
+    fi
+  #- netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build;
