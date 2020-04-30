@@ -1,0 +1,46 @@
+os: linux
+dist: bionic
+language: node_js
+node_js:
+  - 12
+#addons:
+#  apt:
+#    packages:
+#    - libgconf-2-4
+
+cache:
+  # cache both npm modules and Cypress binary
+  directories:
+    - ~/.npm
+    - ~/.cache
+
+install:
+  #- npm install wait-on
+  - npm install
+  # - npm install netlify-cli -g;
+  - |
+    if [[ $TRAVIS_TAG != "" ]]; then
+      npm install netlify-cli -g;
+    fi
+
+before_script:
+  #- cp .env.example .env
+  # - npm run build
+  - |
+    if [[ $TRAVIS_TAG != "" ]]; then
+      npm run build;
+    fi
+
+script:
+  # - npm run generate
+  # - npm run start & wait-on http://localhost:3000
+  # - npx cypress run --config video=false
+  # - kill $(jobs -p) || true
+  - echo "No test, OK"
+
+after_success:
+  - |
+    if [[ $TRAVIS_TAG != "" ]]; then
+      netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build;
+    fi
+  #- netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build;
