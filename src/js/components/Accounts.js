@@ -16,21 +16,22 @@ export class Accounts extends Component {
           <tr>
             <th>ID</th>
             <th>Email</th>
-            <th>Password</th>
             <th>Created at</th>
             <th>Updated at</th>
           </tr>
         </thead>
         <tbody>
-          {this.props.accountsList.map(el => (
-            <tr key={el.id}>
-              <td>{el.id}</td>
-              <td>{el.email}</td>
-              <td>{el.password ? el.password : ''}</td>
-              <td>{el.created_at}</td>
-              <td>{el.updated_at}</td>
-            </tr>
-          ))}
+          { this.props.accountsList ?
+          
+            this.props.accountsList.map(el => (
+              <tr key={el.id}>
+                <td>{el.id}</td>
+                <td>{el.email}</td>
+                <td>{el.created_at}</td>
+                <td>{el.updated_at}</td>
+              </tr>
+            ))
+          : ''}
         </tbody>
       </Table>
     );
