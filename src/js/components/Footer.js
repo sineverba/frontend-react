@@ -18,7 +18,7 @@ export class Footer extends Component {
         <Container>
           <Row>
             <Col>
-              <p>Backend Api Version: {this.props.apiVersion ? this.props.apiVersion : 'N.D.'} - Frontend Version: 0.1.0</p>
+              <p>Backend Api Version: {this.props.apiVersion ? this.props.apiVersion : 'N.D.'} - Frontend Version: {this.props.frontendVersion ? this.props.frontendVersion : 'N.D.'}</p>
             </Col>
           </Row>
         </Container>
@@ -29,7 +29,8 @@ export class Footer extends Component {
 
 function mapStateToProps(state) {
   return {
-    apiVersion: state.apiVersion
+    apiVersion: state.apiVersion,
+    frontendVersion: state.frontendVersion
   };
 }
 
