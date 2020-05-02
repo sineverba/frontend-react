@@ -1,5 +1,4 @@
 + Add GH stuffes
-+ Add axios
 + Add Try / Catch
 + Add Loading
 + Add .env

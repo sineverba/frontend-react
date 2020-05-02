@@ -1,4 +1,9 @@
-# 0.2.1
+# Next version
+
+### Add
++ Add axios
+
+## 0.2.1
 
 ### Fix
 + Fix change data from API
