@@ -1,4 +1,9 @@
-# 0.2.0
+# 0.2.1
+
+### Fix
++ Fix change data from API
+
+## 0.2.0
 
 ### Add
 + Add Frontend version on store
