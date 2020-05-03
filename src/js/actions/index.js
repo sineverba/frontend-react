@@ -1,21 +1,20 @@
 import { LOADED_API_VERSION_SUCCESSFULLY, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
+import API from "../../api/api";
 
 export function fetchBackendApiVersion() {
   return function(dispatch) {
-    return fetch("https://backend-flaskrestx.herokuapp.com/api/v1/ping")
-    .then(response => response.json())
-    .then(json => {
-      dispatch({ type: LOADED_API_VERSION_SUCCESSFULLY, payload: json});
+    return API.get("/ping")
+    .then(res => {
+      dispatch({ type: LOADED_API_VERSION_SUCCESSFULLY, payload: res.data});
     });
   };
 }
 
 export function fetchAccountsList() {
   return function(dispatch) {
-    return fetch("https://backend-flaskrestx.herokuapp.com/api/v1/accounts")
-    .then(response => response.json())
-    .then(json => {
-      dispatch({ type: LOADED_ACCOUNTS_LIST_SUCCESSFULLY, payload: json});
+    return API.get("/accounts")
+    .then(res => {
+      dispatch({ type: LOADED_ACCOUNTS_LIST_SUCCESSFULLY, payload: res.data});
     });
   };
 }
