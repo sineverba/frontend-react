@@ -1,7 +1,8 @@
 # Next version
 
 ### Add
-+ Add axios
++ Add Axios
++ Add Axios interceptors
 
 ## 0.2.1
 
