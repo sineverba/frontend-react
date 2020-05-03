@@ -1,4 +1,4 @@
-# Next version
+# 0.3.0
 
 ### Add
 + Add Axios

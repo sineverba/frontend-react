@@ -2,7 +2,7 @@ import { LOADED_API_VERSION_SUCCESSFULLY, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } fr
 
 const initialState = {
   apiVersion: null,
-  frontendVersion: '0.2.1',
+  frontendVersion: '0.3.0',
   accountsList: []
 };
 
