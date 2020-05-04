@@ -20,7 +20,7 @@ before_script:
     fi
 
 script:
-  - npm test
+  - CI=true npm run coverage
 
 after_success:
   - COVERALLS_REPO_TOKEN=$COVERALLS_TOKEN npm run coveralls
