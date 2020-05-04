@@ -1,4 +1,13 @@
-# 0.4.0
+# Next version
+
+### Add
++ Add Footer test
+
+### Refactor
++ Refactor Accounts test
++ Moved test under __tests__folder
+
+## 0.4.0
 
 ### Refactor
 + Move Router on App
