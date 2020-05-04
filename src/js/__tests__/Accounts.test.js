@@ -1,15 +1,14 @@
 import { fetchAccountsList } from "../actions/index";
+import { LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from "nock";
 
-// declare middlewares
-const middlewares = [thunk];
-const mockStore = configureStore(middlewares);
-
-const store = mockStore({});
-
 describe('Testing fetchAccountsList()', () => {
+
+  const middlewares = [thunk];
+  const mockStore = configureStore(middlewares);
+  const store = mockStore({});
 
   beforeEach(() => {
     store.clearActions();
@@ -34,7 +33,7 @@ describe('Testing fetchAccountsList()', () => {
     );
 
     let expectedActions = [{
-      type: "LOADED_ACCOUNTS_LIST_SUCCESSFULLY",
+      type: LOADED_ACCOUNTS_LIST_SUCCESSFULLY,
       payload: payload
     }];
 

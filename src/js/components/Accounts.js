@@ -22,7 +22,6 @@ export class Accounts extends Component {
         </thead>
         <tbody>
           { this.props.accountsList ?
-          
             this.props.accountsList.map(el => (
               <tr key={el.id}>
                 <td>{el.id}</td>
@@ -31,7 +30,7 @@ export class Accounts extends Component {
                 <td>{el.updated_at}</td>
               </tr>
             ))
-          : ''}
+          : null}
         </tbody>
       </Table>
     );
