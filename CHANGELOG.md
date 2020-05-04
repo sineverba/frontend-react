@@ -1,4 +1,10 @@
-# 0.3.0
+# Next version
+
+### Refactor
++ Move Router on App
++ Add Navigation as component
+
+## 0.3.0
 
 ### Add
 + Add Axios

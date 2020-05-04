@@ -4,9 +4,6 @@ import { fetchBackendApiVersion } from "../actions/index";
 import { Container, Row, Col } from "react-bootstrap";
 
 export class Footer extends Component {
-  /*constructor(props) {
-    super(props);
-  }*/
 
   componentDidMount() {
     this.props.fetchBackendApiVersion();
