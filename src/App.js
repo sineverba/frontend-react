@@ -1,21 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
+import Navigation from "./js/components/Navigation";
 import Accounts from "./js/components/Accounts";
 import Footer from "./js/components/Footer";
 
 function App() {
   return (
-    <Router>
+    <>
       <Container>
-        <Row>
-          <Col>
-            <ul className="list-unstyled list-inline">
-              <li className="list-inline-item"><Link to="/">Home</Link></li>
-              <li className="list-inline-item"><Link to="/accounts">Accounts</Link></li>
-            </ul>
-          </Col>
-        </Row>
+        <Navigation />
         <Row>
           <Col>
             <Switch>
@@ -31,7 +25,7 @@ function App() {
         </Row>
       </Container>
       <Footer />
-    </Router>
+    </>
   );
 }
 

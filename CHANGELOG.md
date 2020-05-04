@@ -1,4 +1,14 @@
-# 0.3.0
+# 0.4.0
+
+### Refactor
++ Move Router on App
++ Add Navigation as component
+
+### Add
++ Add tests
++ Add coverage for tests
+
+## 0.3.0
 
 ### Add
 + Add Axios
