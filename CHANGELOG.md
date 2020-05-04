@@ -6,6 +6,7 @@
 
 ### Add
 + Add tests
++ Add coverage for tests
 
 ## 0.3.0
 
