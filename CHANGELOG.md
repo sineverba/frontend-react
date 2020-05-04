@@ -4,6 +4,9 @@
 + Move Router on App
 + Add Navigation as component
 
+### Add
++ Add tests
+
 ## 0.3.0
 
 ### Add
