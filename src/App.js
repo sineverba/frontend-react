@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
-import Accounts from "./js/components/Accounts";
+import Accounts from "./js/components/connected/Accounts";
 import Footer from "./js/components/Footer";
 
 function App() {

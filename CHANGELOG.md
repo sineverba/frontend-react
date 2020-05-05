@@ -1,4 +1,16 @@
-# 0.4.0
+# 0.5.0
+
+### Add
++ Add Footer test
++ Add Account HTML test
+
+### Refactor
++ Refactor Accounts test
++ Moved test under __tests__folder
++ Refactor Accounts test
++ Refactor Components to Connected and Presentationals
+
+## 0.4.0
 
 ### Refactor
 + Move Router on App

@@ -1,4 +1,3 @@
-+ Move tests under `__tests__` directory
 + Add test for html response
 + Add GH stuffes
 + Add Try / Catch
