@@ -2,10 +2,12 @@
 
 ### Add
 + Add Footer test
++ Add Account HTML test
 
 ### Refactor
 + Refactor Accounts test
 + Moved test under __tests__folder
++ Refactor Accounts test
 
 ## 0.4.0
 
