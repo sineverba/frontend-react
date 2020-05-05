@@ -8,6 +8,7 @@
 + Refactor Accounts test
 + Moved test under __tests__folder
 + Refactor Accounts test
++ Refactor Components to Connected and Presentationals
 
 ## 0.4.0
 
