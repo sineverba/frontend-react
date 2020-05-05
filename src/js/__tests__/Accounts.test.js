@@ -3,7 +3,7 @@ import { LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from "nock";
-import Accounts from "../components/Accounts";
+import Accounts from "../components/connected/Accounts";
 import { shallow, configure } from "enzyme";
 import React from "react";
 import Adapter from "enzyme-adapter-react-16";
