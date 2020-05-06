@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchBackendApiVersion } from "../actions/index";
+import { fetchBackendApiVersion } from "../../actions/index";
 import { Container, Row, Col } from "react-bootstrap";
+import FooterPresentational from "../presentationals/FooterPresentational";
 
 export class Footer extends Component {
 
@@ -15,7 +16,7 @@ export class Footer extends Component {
         <Container>
           <Row>
             <Col>
-              <p>Backend Api Version: {this.props.apiVersion ? this.props.apiVersion : 'N.D.'} - Frontend Version: {this.props.frontendVersion ? this.props.frontendVersion : 'N.D.'}</p>
+              <FooterPresentational apiVersion={this.props.apiVersion} frontendVersion={this.props.frontendVersion} />
             </Col>
           </Row>
         </Container>
