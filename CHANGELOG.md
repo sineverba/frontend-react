@@ -3,6 +3,9 @@
 ### Refactor
 + Refactor Footer in connected and presentational
 
+### Add
++ Add Footer test
+
 ## 0.5.0
 
 ### Add
