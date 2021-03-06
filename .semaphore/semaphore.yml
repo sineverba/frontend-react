@@ -14,8 +14,7 @@ global_job_config:
 blocks:
   - name: Install dependencies
     skip:
-    #  when: "tag =~ '.*'"
-      when: "true"
+      when: "tag =~ '.*'"
     task:
       jobs:
         - name: 'Install'
@@ -27,8 +26,7 @@ blocks:
 
   - name: Test
     skip:
-    #  when: "tag =~ '.*'"
-      when: "true"
+      when: "tag =~ '.*'"
     task:
       prologue:
         commands:
@@ -46,8 +44,7 @@ blocks:
 
   - name: Coverage
     skip:
-    #  when: "tag =~ '.*'"
-      when: "true"
+      when: "tag =~ '.*'"
     task:
       prologue:
         commands:
@@ -63,5 +60,4 @@ promotions:
   - name: Deploy
     pipeline_file: deploy.yml
     auto_promote:
-      #when: "tag =~ '.*'"
-      when: "true"
+      when: "tag =~ '.*'"
