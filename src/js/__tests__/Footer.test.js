@@ -20,7 +20,7 @@ describe('Testing fetchBackendApiVersion()', () => {
       "api_version": "0.4.0"
     };
       
-    nock('https://backend-flaskrestx.herokuapp.com/api/v1')
+    nock(process.env.REACT_APP_BACKEND_URL || 'https://backend-flaskrestx.herokuapp.com/api/v1')
     .get('/ping')
     .reply(200,
       payload,

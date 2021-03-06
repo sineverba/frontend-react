@@ -18,6 +18,7 @@ Contributing are welcome!
 ## Run in development (Local installation)
 
 ```javascript
+$ cp .env.bak .env
 $ npm install
 $ npm start
 ```

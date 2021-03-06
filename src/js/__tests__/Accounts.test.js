@@ -21,7 +21,7 @@ describe('Testing fetchAccountsList()', () => {
     ]
   };
 
-  nock('https://backend-flaskrestx.herokuapp.com/api/v1')
+  nock(process.env.REACT_APP_BACKEND_URL || 'https://backend-flaskrestx.herokuapp.com/api/v1')
   .get('/accounts')
   .reply(200,
         payload,
