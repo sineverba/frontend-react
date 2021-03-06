@@ -1,4 +1,4 @@
-# Next version
+# 0.7.0
 + Add `env` configuration
 + Add `environment variable` configuration for Netlify
 
