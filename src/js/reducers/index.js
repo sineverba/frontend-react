@@ -2,7 +2,7 @@ import { LOADED_API_VERSION_SUCCESSFULLY, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } fr
 
 const initialState = {
   apiVersion: null,
-  frontendVersion: '0.6.0',
+  frontendVersion: process.env.REACT_APP_APP_VERSION || 'N.D.',
   accountsList: []
 };
 
