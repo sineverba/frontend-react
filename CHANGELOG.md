@@ -1,10 +1,9 @@
 # Next version
-
-### Refactor
 + Refactor Footer in connected and presentational
-
-### Add
 + Add Footer test
++ Remove Travis
++ Add Semaphore CI
++ Add Circle CI
 
 ## 0.5.0
 

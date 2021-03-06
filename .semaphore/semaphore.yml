@@ -1,0 +1,64 @@
+version: v1.0
+
+name: Build and test Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+global_job_config:
+  secrets:
+    - name: FRONTEND_REACT
+    - name: NETLIFY
+
+blocks:
+  - name: Install dependencies
+    #skip:
+    #  when: "tag =~ '.*'"
+    task:
+      jobs:
+        - name: 'Install'
+          commands:
+            - checkout
+            - cache restore
+            - npm ci
+            - cache store
+
+  - name: Test
+    #skip:
+    #  when: "tag =~ '.*'"
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+      jobs:
+        - name: Test
+          matrix:
+            - env_var: NODE_VERSION
+              values: [ "10", "11", "12", "13", "14" ]
+          commands:
+            - sem-version node $NODE_VERSION
+            - node --version
+            - CI=true npm run coverage
+
+  - name: Coverage
+    #skip:
+    #  when: "tag =~ '.*'"
+    task:
+      prologue:
+        commands:
+          - checkout
+          - cache restore
+      jobs:
+      - name: Coverage
+        commands:
+          - CI=true npm run coverage
+          - cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+
+promotions:
+  - name: Deploy
+    pipeline_file: deploy.yml
+    auto_promote:
+      #when: "tag =~ '.*'"
+      when: "true"
