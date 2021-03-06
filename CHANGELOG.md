@@ -1,4 +1,12 @@
-# 0.5.0
+# 0.6.0
++ Refactor Footer in connected and presentational
++ Add Footer test
++ Remove Travis
++ Add Semaphore CI
++ Add Circle CI
++ Bump dependencies
+
+## 0.5.0
 
 ### Add
 + Add Footer test

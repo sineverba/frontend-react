@@ -1,0 +1,17 @@
+version: 2.1
+jobs:
+
+  test:
+    docker:
+      - image: cimg/node:12.21.0
+
+    steps:
+      - checkout
+      - run: npm ci
+      - run: CI=true npm run coverage
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
