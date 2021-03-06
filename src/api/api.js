@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: 'https://backend-flaskrestx.herokuapp.com/api/v1',
+  baseURL: process.env.REACT_APP_BACKEND_URL || 'https://backend-flaskrestx.herokuapp.com/api/v1',
   headers: {
     "content-type": "application/json"
   },
