@@ -1,4 +1,4 @@
-# Next version
+# 0.6.0
 + Refactor Footer in connected and presentational
 + Add Footer test
 + Remove Travis
