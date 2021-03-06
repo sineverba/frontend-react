@@ -20,5 +20,8 @@ blocks:
           - checkout
           - npm install netlify-cli -g
           - npm ci
+          - cp .env.bak .env
+          - sed -i "s|1.2.3|$SEMAPHORE_GIT_TAG_NAME|g" .env
+          - sed -i "s|BACKENDURL|$URL_BACKEND|g" .env
           - npm run build
           - netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build

@@ -1,5 +1,6 @@
 # Next version
 + Add `env` configuration
++ Add `environment variable` configuration for Netlify
 
 ## 0.6.0
 + Refactor Footer in connected and presentational
