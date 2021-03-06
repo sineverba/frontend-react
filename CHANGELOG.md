@@ -4,6 +4,7 @@
 + Remove Travis
 + Add Semaphore CI
 + Add Circle CI
++ Bump dependencies
 
 ## 0.5.0
 
