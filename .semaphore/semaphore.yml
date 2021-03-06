@@ -13,8 +13,9 @@ global_job_config:
 
 blocks:
   - name: Install dependencies
-    #skip:
+    skip:
     #  when: "tag =~ '.*'"
+      when: "true"
     task:
       jobs:
         - name: 'Install'
@@ -25,8 +26,9 @@ blocks:
             - cache store
 
   - name: Test
-    #skip:
+    skip:
     #  when: "tag =~ '.*'"
+      when: "true"
     task:
       prologue:
         commands:
@@ -43,8 +45,9 @@ blocks:
             - CI=true npm run coverage
 
   - name: Coverage
-    #skip:
+    skip:
     #  when: "tag =~ '.*'"
+      when: "true"
     task:
       prologue:
         commands:
