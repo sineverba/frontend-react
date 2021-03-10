@@ -1,4 +1,4 @@
-import { LOADED_API_VERSION_SUCCESSFULLY, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
+import { TRY_LOADING, LOADED_API_VERSION_SUCCESSFULLY, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
 import API from "../../api/api";
 
 export function fetchBackendApiVersion() {
@@ -12,6 +12,9 @@ export function fetchBackendApiVersion() {
 
 export function fetchAccountsList() {
   return function(dispatch) {
+    dispatch({
+      type: TRY_LOADING
+    });
     return API.get("/accounts")
     .then(res => {
       dispatch({ type: LOADED_ACCOUNTS_LIST_SUCCESSFULLY, payload: res.data});
