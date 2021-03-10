@@ -11,14 +11,15 @@ export class Accounts extends Component {
 
   render() {
     return (
-      <AccountsPresentational accountsList={this.props.accountsList} />
+      <AccountsPresentational accountsList={this.props.accountsList} isLoading={this.props.isLoading} />
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    accountsList: state.accountsList
+    accountsList: state.accountsList,
+    isLoading: state.isLoading
   };
 }
 

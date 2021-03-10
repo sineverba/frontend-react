@@ -1,4 +1,7 @@
-# 0.7.1
+# Next version
++ Add loading to fetch accounts list
+
+## 0.7.1
 + Fix 404 page refresh on Netlify (@see https://stackoverflow.com/questions/58065603/netlify-renders-404-on-page-refresh-using-react-and-react-router)
 
 ## 0.7.0

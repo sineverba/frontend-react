@@ -1,5 +1,5 @@
 import { fetchAccountsList } from "../actions/index";
-import { LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
+import { TRY_LOADING, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from "nock";
@@ -43,10 +43,15 @@ describe('Testing fetchAccountsList()', () => {
 
   it('Should get LOADED_ACCOUNTS_LIST_SUCCESSFULLY', async () => {
       
-    let expectedActions = [{
-      type: LOADED_ACCOUNTS_LIST_SUCCESSFULLY,
-      payload: payload
-    }];
+    let expectedActions = [
+      {
+        type: TRY_LOADING
+      },
+      {
+        type: LOADED_ACCOUNTS_LIST_SUCCESSFULLY,
+        payload: payload
+      }
+    ];
 
     await store.dispatch(fetchAccountsList()).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
