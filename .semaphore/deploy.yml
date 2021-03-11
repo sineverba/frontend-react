@@ -10,18 +10,34 @@ global_job_config:
   secrets:
     - name: FRONTEND_REACT
     - name: NETLIFY
+    - name: HEROKU
+
+  env_vars:
+    - name: HEROKU_REGISTRY_IMAGE
+      value: registry.heroku.com/fe-react/web
+    - name: HEROKU_APP
+      value: fe-react
 
 blocks:
   - name: Deploy
     task:
-      jobs:
-      - name: Deploy to Netlify
+      prologue:
         commands:
           - checkout
-          - npm install netlify-cli -g
-          - npm ci
           - cp .env.bak .env
           - sed -i "s|1.2.3|$SEMAPHORE_GIT_TAG_NAME|g" .env
           - sed -i "s|BACKENDURL|$URL_BACKEND|g" .env
+      jobs:
+      - name: "Deploy to Netlify"
+        commands:
+          - npm install netlify-cli -g
+          - npm ci
           - npm run build
           - netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build
+      - name: "Deploy to Heroku"
+        commands:
+          - docker build --tag $HEROKU_REGISTRY_IMAGE --file ./docker/Dockerfile "."
+          - docker login -u _ -p $HEROKU_API_KEY registry.heroku.com
+          - docker push $HEROKU_REGISTRY_IMAGE
+          - curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+          - heroku container:release web -a $HEROKU_APP
