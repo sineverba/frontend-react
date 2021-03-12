@@ -31,7 +31,9 @@ describe('Testing fetchAccountsList()', () => {
   const middlewares = [thunk];
   const mockStore = configureStore(middlewares);
   const initialState = {
-    accountsList: payload
+    accounts: {
+      accountsList: {payload}
+    }
   }
   const store = mockStore(initialState);
 
@@ -61,7 +63,7 @@ describe('Testing fetchAccountsList()', () => {
   it('Should get accountsList in props', async () => {
 
     let wrapper = shallow(<Accounts store={store} />);
-    expect(wrapper.props().children.props.accountsList).toBe(payload);
+    expect(wrapper.props().children.props.accountsList.payload).toBe(payload);
 
   });
 })
