@@ -18,8 +18,8 @@ export class Accounts extends Component {
 
 function mapStateToProps(state) {
   return {
-    accountsList: state.accountsList,
-    isLoading: state.isLoading
+    accountsList: state.accounts.accountsList,
+    isLoading: state.accounts.isLoading
   };
 }
 

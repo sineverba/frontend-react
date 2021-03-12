@@ -1,4 +1,7 @@
-# 0.8.0
+# Next version
++ Split reducers
+
+## 0.8.0
 + Add loading to fetch accounts list
 + Add Docker
 + Add Heroku deploy

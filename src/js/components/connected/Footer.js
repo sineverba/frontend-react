@@ -27,8 +27,8 @@ export class Footer extends Component {
 
 function mapStateToProps(state) {
   return {
-    apiVersion: state.apiVersion,
-    frontendVersion: state.frontendVersion
+    apiVersion: state.ping.apiVersion,
+    frontendVersion: state.frontendVersion.frontendVersion
   };
 }
 
