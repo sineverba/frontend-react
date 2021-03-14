@@ -1,22 +1,29 @@
-import { TRY_LOADING, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../../constants/action-types";
+const initialState = {
+    isLoading: true
+};
 
-function accounts(state = {}, action) {
+const accounts = (state = initialState, action) => {
     switch (action.type) {
-        case TRY_LOADING: {
-            return Object.assign({}, state, {
-              isLoading: true
-            });
-          }
+        case "TRY_FETCH_ACCOUNTS_COLLECTION": {
+            return Object.assign({}, state);
+        }
       
-          case LOADED_ACCOUNTS_LIST_SUCCESSFULLY: {
+        case "FETCH_ACCOUNTS_COLLECTION_SUCCEEDED": {
             return Object.assign({}, state, {
-              accountsList: action.payload.data,
-              isLoading: false
+                isLoading: false,
+                accountsList: action.data,
             });
-          }
-          default: {}
+        }
+
+        case "FETCH_ACCOUNTS_COLLECTION_FAILED": {
+            return Object.assign({}, state, {
+                isLoading: false,
+                error: action.error
+            });
+        }
+          
+        default: {}
     }  
     return state;
-};
-  
+}
 export default accounts;

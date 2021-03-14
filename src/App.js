@@ -1,8 +1,7 @@
-import React from 'react';
 import { Switch, Route } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
-import Accounts from "./js/components/connected/Accounts";
+import AccountsPresentational from "./js/components/presentationals/AccountsPresentational";
 import Footer from "./js/components/connected/Footer";
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
             <Switch>
               <Route path="/accounts">
                 <h1>Accounts</h1>
-                <Accounts />
+                <AccountsPresentational />
               </Route>
               <Route path="/">
                 <h1>Home</h1>
