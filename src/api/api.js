@@ -20,12 +20,10 @@ function createAxiosRequestInterceptor(axiosInstance) {
 function createAxiosResponseInterceptor(axiosInstance) {
   /*const interceptor = */axiosInstance.interceptors.response.use(
       response => {
-        //console.log(response);
         return response;
       },
       error => {
-        //console.log(error);
-        return error;
+        return Promise.reject(error);
           // Reject promise if usual error
           /*if (error.status !== 401) {
               return Promise.reject(error);
