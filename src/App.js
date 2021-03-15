@@ -2,7 +2,7 @@ import { Switch, Route } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
 import AccountsPresentational from "./js/components/presentationals/AccountsPresentational";
-import Footer from "./js/components/connected/Footer";
+import FooterPresentational from "./js/components/presentationals/FooterPresentational";
 
 function App() {
   return (
@@ -22,8 +22,13 @@ function App() {
             </Switch>
           </Col>
         </Row>
+        <Row>
+          <Col>
+            <FooterPresentational />
+          </Col>
+        </Row>
       </Container>
-      <Footer />
+      
     </>
   );
 }

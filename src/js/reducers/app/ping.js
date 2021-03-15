@@ -1,16 +1,30 @@
-import { LOADED_API_VERSION_SUCCESSFULLY } from "../../constants/action-types";
+const initialState = {
+    isLoading: true,
+    appVersion: process.env.REACT_APP_APP_VERSION || 'N.D.'
+};
 
-function ping(state = {}, action) {
+const ping = (state = initialState, action) => {
     switch (action.type) {
-        case LOADED_API_VERSION_SUCCESSFULLY: {
+        case "TRY_FETCH_PING_COLLECTION": {
+            return Object.assign({}, state);
+        }
+      
+        case "FETCH_PING_COLLECTION_SUCCEEDED": {
             return Object.assign({}, state, {
-                apiVersion: action.payload.api_version,
-                isLoading: false
+                isLoading: false,
+                apiVersion: action.data && action.data.api_version ? action.data.api_version : 'N.D.',
             });
         }
+
+        case "FETCH_PING_COLLECTION_FAILED": {
+            return Object.assign({}, state, {
+                isLoading: false,
+                error: action.error
+            });
+        }
+          
         default: {}
     }  
     return state;
-};
-  
+}
 export default ping;

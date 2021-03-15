@@ -1,6 +1,7 @@
 # Next version
 + Split reducers
 + Refactor store with typescript
++ Refactor footer
 
 ## 0.8.0
 + Add loading to fetch accounts list
