@@ -1,4 +1,3 @@
-import { TRY_LOADING, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from "nock";
@@ -8,7 +7,7 @@ import AccountsPresentational from '../components/presentationals/AccountsPresen
 import { render } from '@testing-library/react';
 import { actions as accountsAction } from "../actions/AccountsAction";
 
-describe('Testing fetchAccountsList()', () => {
+describe('Testing Accounts Component', () => {
 
   const payload = {
     data: [
