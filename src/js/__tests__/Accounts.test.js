@@ -1,14 +1,13 @@
-import { fetchAccountsList } from "../actions/index";
-import { TRY_LOADING, LOADED_ACCOUNTS_LIST_SUCCESSFULLY } from "../constants/action-types";
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import nock from "nock";
-import Accounts from "../components/connected/Accounts";
 import { shallow, configure } from "enzyme";
-import React from "react";
 import Adapter from "enzyme-adapter-react-16";
+import AccountsPresentational from '../components/presentationals/AccountsPresentational';
+import { render } from '@testing-library/react';
+import { actions as accountsAction } from "../actions/AccountsAction";
 
-describe('Testing fetchAccountsList()', () => {
+describe('Testing Accounts Component', () => {
 
   const payload = {
     data: [
@@ -31,7 +30,10 @@ describe('Testing fetchAccountsList()', () => {
   const middlewares = [thunk];
   const mockStore = configureStore(middlewares);
   const initialState = {
-    accountsList: payload
+    accounts: {
+      accountsList: payload
+    },
+    fetch: () => dispatch(accountsAction.readAll())
   }
   const store = mockStore(initialState);
 
@@ -41,27 +43,15 @@ describe('Testing fetchAccountsList()', () => {
     store.clearActions();
   });
 
-  it('Should get LOADED_ACCOUNTS_LIST_SUCCESSFULLY', async () => {
-      
-    let expectedActions = [
-      {
-        type: TRY_LOADING
-      },
-      {
-        type: LOADED_ACCOUNTS_LIST_SUCCESSFULLY,
-        payload: payload
-      }
-    ];
-
-    await store.dispatch(fetchAccountsList()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-    });
-  });
-
   it('Should get accountsList in props', async () => {
 
-    let wrapper = shallow(<Accounts store={store} />);
-    expect(wrapper.props().children.props.accountsList).toBe(payload);
+    let wrapper = shallow(<AccountsPresentational store={store} />);
+    expect(wrapper.props().children.props.accountsList).toBe(payload.data);
 
+  });
+
+  it('Should renders a username', () => {
+    const { getByText } = render(<AccountsPresentational store={store} />);
+    expect(getByText('info@example.com')).toBeTruthy();
   });
 })
