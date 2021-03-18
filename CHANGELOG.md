@@ -1,4 +1,4 @@
-# Next version
+# 0.9.0
 + Split reducers
 + Refactor store with typescript
 + Refactor footer
