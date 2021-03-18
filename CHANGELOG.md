@@ -2,6 +2,7 @@
 + Split reducers
 + Refactor store with typescript
 + Refactor footer
++ Change backend URL
 
 ## 0.8.0
 + Add loading to fetch accounts list
