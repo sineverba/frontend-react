@@ -23,7 +23,7 @@ blocks:
     task:
       prologue:
         commands:
-          - sem-version node $NODE_VERSION
+          - sem-version node 14.16.0
           - node --version
           - checkout
           - cp .env.bak .env
