@@ -23,6 +23,8 @@ blocks:
     task:
       prologue:
         commands:
+          - sem-version node $NODE_VERSION
+          - node --version
           - checkout
           - cp .env.bak .env
           - sed -i "s|1.2.3|$SEMAPHORE_GIT_TAG_NAME|g" .env

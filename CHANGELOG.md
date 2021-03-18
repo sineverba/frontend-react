@@ -1,4 +1,7 @@
-# 0.9.0
+# Next version
++ Deploy with Node 14
+
+## 0.9.0
 + Split reducers
 + Refactor store with typescript
 + Refactor footer
