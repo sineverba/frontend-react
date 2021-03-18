@@ -12,7 +12,7 @@ const ping = (state = initialState, action) => {
         case "FETCH_PING_COLLECTION_SUCCEEDED": {
             return Object.assign({}, state, {
                 isLoading: false,
-                apiVersion: action.data && action.data.api_version ? action.data.api_version : 'N.D.',
+                apiVersion: action.data && action.data.app_version ? action.data.app_version : 'N.D.',
             });
         }
 

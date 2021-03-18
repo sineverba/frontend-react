@@ -10,9 +10,7 @@ import { actions as pingActions } from "../actions/PingActions";
 describe('Testing Footer Component', () => {
 
   const payload = {
-    "status": "success",
-    "message": "system up and running",
-    "api_version": "1.1.1"
+    "app_version": "1.1.1"
   };
 
   nock(process.env.REACT_APP_BACKEND_URL || 'https://backend-flaskrestx.herokuapp.com/api/v1')
