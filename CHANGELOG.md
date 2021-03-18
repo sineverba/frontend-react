@@ -1,5 +1,7 @@
 # Next version
 + Deploy with Node 14
++ Refactor store
++ Add tests
 
 ## 0.9.0
 + Split reducers
