@@ -2,6 +2,7 @@
 + Deploy with Node 14
 + Refactor store
 + Add tests
++ Complete ping test
 
 ## 0.9.0
 + Split reducers
