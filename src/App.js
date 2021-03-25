@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
 import AccountsPresentational from "./js/components/presentationals/AccountsPresentational";
 import FooterPresentational from "./js/components/presentationals/FooterPresentational";
+import HomePresentational from "./js/components/presentationals/HomePresentational";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
               </Route>
               <Route path="/">
                 <h1>Home</h1>
+                <HomePresentational />
               </Route>
             </Switch>
           </Col>
