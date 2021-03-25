@@ -3,6 +3,7 @@
 + Refactor store
 + Add tests
 + Complete ping test
++ Add login
 
 ## 0.9.0
 + Split reducers
