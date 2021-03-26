@@ -5,8 +5,6 @@ export default class LoginAction extends GenericCRUDActions {
     
     constructor() {
 
-        console.log("called login action")
-
         super("login", loginApi);
         
     }
