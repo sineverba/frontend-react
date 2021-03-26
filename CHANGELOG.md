@@ -4,6 +4,7 @@
 + Add tests
 + Complete ping test
 + Add login
++ Complete login test
 
 ## 0.9.0
 + Split reducers
