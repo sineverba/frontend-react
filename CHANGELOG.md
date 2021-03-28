@@ -5,6 +5,7 @@
 + Complete ping test
 + Add login
 + Complete login test
++ Add login and logout to localStorage
 
 ## 0.9.0
 + Split reducers
