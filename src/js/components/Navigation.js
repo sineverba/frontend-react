@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
+import { connect } from "react-redux";
+import { actions as loginActions } from "../actions/LoginActions";
 
 export const Navigation = (props) => {
 
   const logout = (e) => {
     e.preventDefault();
-    localStorage.removeItem('REACT_FE_ACCESS_TOKEN')
+    props.logout();
   }
 
   return (
@@ -14,11 +16,29 @@ export const Navigation = (props) => {
         <ul className="list-unstyled list-inline">
           <li className="list-inline-item"><Link to="/">Home</Link></li>
           <li className="list-inline-item"><Link to="/accounts">Accounts</Link></li>
-          <li className="list-inline-item"><Link to="#" onClick={logout}>Logout</Link></li>
+          {
+            props.accessToken &&
+            <li className="list-inline-item"><Link to="#" onClick={logout}>Logout</Link></li>
+          }
         </ul>
       </Col>
     </Row>
   );
 }
 
-export default Navigation;
+export const mapStateToProps = (state) => {
+  return {
+    accessToken: state.login.accessToken ? state.login.accessToken : null
+  };
+}
+
+export const mapDispatchToProps = (dispatch) => {
+  return {
+    logout: () => dispatch(loginActions.logout())
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Navigation);

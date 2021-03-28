@@ -1,5 +1,5 @@
 const initialState = {
-    isLoading: false
+    isLoading: false,
 };
 
 const login = (state = initialState, action) => {
@@ -17,13 +17,21 @@ const login = (state = initialState, action) => {
             }
             return Object.assign({}, state, {
                 isLoading: false,
-                accessToken: accessToken
+                accessToken: accessToken,
             });
         }
 
         case "LOGIN_POST_FAILED": {
             return Object.assign({}, state, {
                 isLoading: false
+            });
+        }
+
+        case "LOGOUT": {
+            localStorage.removeItem('REACT_FE_ACCESS_TOKEN')
+            return Object.assign({}, state, {
+                isLoading: false,
+                accessToken: null,
             });
         }
           
