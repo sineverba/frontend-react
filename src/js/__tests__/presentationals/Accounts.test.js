@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import nock from "nock";
 import { shallow, configure } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import AccountsPresentational from '../components/presentationals/AccountsPresentational';
+import AccountsPresentational from '../../components/presentationals/AccountsPresentational';
 import { render } from '@testing-library/react';
-import { actions as accountsAction } from "../actions/AccountsAction";
+import { actions as accountsAction } from "../../actions/AccountsAction";
 
 describe('Testing Accounts Component', () => {
 
@@ -43,7 +43,7 @@ describe('Testing Accounts Component', () => {
     store.clearActions();
   });
 
-  it('Should get accountsList in props', async () => {
+  it('Should get accountsList in props', () => {
 
     let wrapper = shallow(<AccountsPresentational store={store} />);
     expect(wrapper.props().children.props.accountsList).toBe(payload.data);

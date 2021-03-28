@@ -1,14 +1,14 @@
 {
   "name": "frontend-react",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-    "react": "^17.0.1",
-    "react-bootstrap": "^1.5.1",
-    "react-dom": "^17.0.1",
-    "react-redux": "^7.2.2",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.5.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.0.5",
@@ -18,8 +18,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "coverage": "react-scripts test --coverage",
+    "test": "ENV=test react-scripts test",
+    "coverage": "CI=true ENV=test react-scripts test --coverage",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "eject": "react-scripts eject"
   },
@@ -43,9 +43,9 @@
     "coveralls": "^3.1.0",
     "enzyme": "^3.11.0",
     "nock": "^13.0.11",
-    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^12.8.3",
+    "@testing-library/user-event": "^13.0.16",
     "redux-mock-store": "^1.5.4"
   }
 }

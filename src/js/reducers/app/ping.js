@@ -1,6 +1,6 @@
 const initialState = {
     isLoading: true,
-    appVersion: process.env.REACT_APP_APP_VERSION || 'N.D.'
+    appVersion: process.env.ENV === 'test' ? 'test': process.env.REACT_APP_APP_VERSION || 'N.D.'
 };
 
 const ping = (state = initialState, action) => {

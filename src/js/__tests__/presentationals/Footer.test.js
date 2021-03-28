@@ -3,9 +3,9 @@ import thunk from 'redux-thunk';
 import nock from "nock";
 import { shallow, configure, mount } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import FooterPresentational from '../components/presentationals/FooterPresentational';
+import FooterPresentational from '../../components/presentationals/FooterPresentational';
 import { render } from '@testing-library/react';
-import { actions as pingActions } from "../actions/PingActions";
+import { actions as pingActions } from "../../actions/PingActions";
 
 describe('Testing Footer Component', () => {
 
@@ -35,6 +35,13 @@ describe('Testing Footer Component', () => {
 
   beforeEach(() => {
     store.clearActions();
+  });
+
+  it('Should get appVersion in props', () => {
+
+    let wrapper = shallow(<FooterPresentational store={store} />);
+    expect(wrapper.props().children.props.ping).toBe(initialState.appVersion);
+
   });
 
 

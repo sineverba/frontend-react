@@ -1,4 +1,17 @@
-# 0.9.0
+# 0.10.0
++ Deploy with Node 14
++ Refactor store
++ Add tests
++ Complete ping test
++ Add login
++ Complete login test
++ Add login and logout to localStorage
++ Move navigation to functional Components
++ Refactor LoginActions
++ Add logout action
++ Bump dependencies
+
+## 0.9.0
 + Split reducers
 + Refactor store with typescript
 + Refactor footer
