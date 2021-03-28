@@ -11,7 +11,10 @@ const instance = axios.create({
 function createAxiosRequestInterceptor(axiosInstance) {
   axiosInstance.interceptors.request.use(
     config => {
-      //console.log(config);
+      const accessToken = localStorage.getItem('REACT_FE_ACCESS_TOKEN')
+      if (accessToken) {
+          config.headers.common.Authorization = `Bearer ${accessToken}`
+      }
       return config;
     }
   )

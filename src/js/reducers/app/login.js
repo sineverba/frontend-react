@@ -11,9 +11,13 @@ const login = (state = initialState, action) => {
         }
       
         case "LOGIN_POST_SUCCEEDED": {
+            const accessToken = action.data && action.data.access_token ? action.data.access_token : null
+            if (accessToken) {
+                localStorage.setItem('REACT_FE_ACCESS_TOKEN', accessToken)
+            }
             return Object.assign({}, state, {
                 isLoading: false,
-                accessToken: action.data && action.data.access_token ? action.data.access_token : null
+                accessToken: accessToken
             });
         }
 
