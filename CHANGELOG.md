@@ -8,6 +8,7 @@
 + Add login and logout to localStorage
 + Move navigation to functional Components
 + Refactor LoginActions
++ Add logout action
 
 ## 0.9.0
 + Split reducers
