@@ -1,4 +1,4 @@
-# Next version
+# 0.10.0
 + Deploy with Node 14
 + Refactor store
 + Add tests
@@ -9,6 +9,7 @@
 + Move navigation to functional Components
 + Refactor LoginActions
 + Add logout action
++ Bump dependencies
 
 ## 0.9.0
 + Split reducers
