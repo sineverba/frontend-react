@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Loading from "./Loading";
 import { Form, Button } from 'react-bootstrap';
 import { connect } from "react-redux";
-import { actions as loginAction } from "../../actions/LoginAction";
+import { actions as loginActions } from "../../actions/LoginActions";
 
 export const HomePresentational = props => {
 
@@ -66,7 +66,7 @@ export const mapStateToProps = (state) => {
 
 export const mapDispatchToProps = (dispatch) => {
   return {
-    login: (data) => dispatch(loginAction.post(data))
+    login: (data) => dispatch(loginActions.post(data))
   }
 }
 
