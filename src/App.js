@@ -1,38 +1,12 @@
-import { Switch, Route } from "react-router-dom";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
-import AccountsPresentational from "./js/components/presentationals/AccountsPresentational";
-import FooterPresentational from "./js/components/presentationals/FooterPresentational";
-import HomePresentational from "./js/components/presentationals/HomePresentational";
+import { Router } from "./Router";
 
-function App() {
-  return (
-    <>
-      <Container>
+const App = (props) => (
+    <Container>
         <Navigation />
-        <Row>
-          <Col>
-            <Switch>
-              <Route path="/accounts">
-                <h1>Accounts</h1>
-                <AccountsPresentational />
-              </Route>
-              <Route path="/">
-                <h1>Home</h1>
-                <HomePresentational />
-              </Route>
-            </Switch>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <FooterPresentational />
-          </Col>
-        </Row>
-      </Container>
-      
-    </>
-  );
-}
+        <Router />  
+    </Container>
+);
 
 export default App;

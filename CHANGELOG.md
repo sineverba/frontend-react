@@ -1,4 +1,7 @@
-# 0.10.0
+# Next version
++ Move router to separate component
+
+## 0.10.0
 + Deploy with Node 14
 + Refactor store
 + Add tests
