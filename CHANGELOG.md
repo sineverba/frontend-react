@@ -1,6 +1,7 @@
 # Next version
 + Move router to separate component
 + Refactor components and remove unused
++ Add redirect if logged
 
 ## 0.10.0
 + Deploy with Node 14
