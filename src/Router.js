@@ -3,6 +3,7 @@ import Home from "./js/pages/Home"
 import Dashboard from "./js/pages/Dashboard"
 import { Col, Row } from "react-bootstrap";
 import AuthRouter from "./AuthRouter";
+import Roles from "./js/pages/Roles";
 
 export const Router = (props) => {
     
@@ -15,6 +16,9 @@ export const Router = (props) => {
                     </AuthRouter>
                     <AuthRouter exact path="/dashboard" type="private">
                         <Dashboard />
+                    </AuthRouter>
+                    <AuthRouter exact path="/roles" type="private">
+                        <Roles />
                     </AuthRouter>
                 </Switch>
             </Col>
