@@ -4,6 +4,7 @@
 + Add redirect if logged
 + Add roles calls
 + Refactor module names
++ Add datatable
 
 ## 0.10.0
 + Deploy with Node 14

@@ -1,5 +1,6 @@
 const initialState = {
     isLoading: true,
+    roles: [],
 };
 
 const roles = (state = initialState, action) => {
@@ -11,6 +12,7 @@ const roles = (state = initialState, action) => {
         case "FETCH_ROLES_COLLECTION_SUCCEEDED": {
             return Object.assign({}, state, {
                 isLoading: false,
+                roles: action.data && action.data.data && action.data.data.length > 0 ? action.data.data : [],
             });
         }
 
