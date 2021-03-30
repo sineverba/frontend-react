@@ -20,6 +20,7 @@ export const Navigation = (props) => {
             props.accessToken &&
               <Fragment>
                 <li className="list-inline-item"><Link to="/dashboard">Dashboard</Link></li>
+                <li className="list-inline-item"><Link to="/roles">Roles</Link></li>
                 <li className="list-inline-item"><Link to="#" onClick={logout}>Logout</Link></li>
               </Fragment>
           }
