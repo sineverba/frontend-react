@@ -3,6 +3,7 @@
 + Refactor components and remove unused
 + Add redirect if logged
 + Add roles calls
++ Refactor module names
 
 ## 0.10.0
 + Deploy with Node 14

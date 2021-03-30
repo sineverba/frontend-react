@@ -1,10 +1,10 @@
 import AbstractCRUDApi from "./AbstractCRUDApi";
 
-export default class rolesAPI extends AbstractCRUDApi {
+export default class RolesAPI extends AbstractCRUDApi {
     
     getBaseURL(): String {
         return "/roles";
      }
 }
 
-export const instance = new rolesAPI();
+export const instance = new RolesAPI();
