@@ -1,5 +1,5 @@
 import GenericCRUDActions from "./GenericCRUDActions";
-import { instance as rolesAPI } from "../../api/rolesAPI";
+import { instance as rolesAPI } from "../../api/RolesAPI";
 
 export default class RolesActions extends GenericCRUDActions {
     
