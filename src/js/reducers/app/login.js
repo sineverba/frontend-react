@@ -34,6 +34,18 @@ const login = (state = initialState, action) => {
                 accessToken: null,
             });
         }
+
+        case "CHECK_TOKEN": {
+            const accessToken = localStorage.getItem('REACT_FE_ACCESS_TOKEN');
+            if (accessToken) {
+                return Object.assign({}, state, {
+                    isLoading: false,
+                    accessToken: accessToken,
+                });
+            }
+            return Object.assign({}, state, {});
+        }
+
           
         default: {}
     }  
