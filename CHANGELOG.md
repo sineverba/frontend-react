@@ -5,6 +5,7 @@
 + Add roles calls
 + Refactor module names
 + Add datatable
++ Use token if set in localStorage
 
 ## 0.10.0
 + Deploy with Node 14

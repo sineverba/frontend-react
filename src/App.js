@@ -2,13 +2,30 @@ import { Container } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
 import FooterPresentational from './js/components/presentationals/FooterPresentational';
 import { Router } from "./Router";
+import { useEffect } from 'react';
+import { connect } from "react-redux";
+import { actions as loginActions } from './js/actions/LoginActions';
 
-const App = (props) => (
-    <Container>
-        <Navigation />
-        <Router />
-        <FooterPresentational />
-    </Container>
-);
+export const App = (props) => {
 
-export default App;
+    useEffect(() => {
+        props.checkToken()
+    }, [props])
+
+    return (
+
+        <Container>
+            <Navigation />
+            <Router />
+            <FooterPresentational />
+        </Container>
+    );
+};
+
+export const mapDispatchToProps = (dispatch) => {
+    return {
+      checkToken: () => dispatch(loginActions.checkToken())
+    }
+  }
+  
+export default connect(null, mapDispatchToProps)(App);
