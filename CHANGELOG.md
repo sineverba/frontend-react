@@ -1,4 +1,7 @@
-# 0.11.0
+# Next version
++ Add scss
+
+## 0.11.0
 + Move router to separate component
 + Refactor components and remove unused
 + Add redirect if logged

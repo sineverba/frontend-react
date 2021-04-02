@@ -17,9 +17,9 @@ export const FooterPresentational = props => {
   return (
     <Row>
         <Col>
-            <div className="text-center">
+            <footer>
                 <p>Backend Api Version: {props.apiVersion ? props.apiVersion : 'N.D.'} - Frontend Version: {props.appVersion ? props.appVersion : 'N.D.'}</p>
-            </div>
+            </footer>
         </Col>
     </Row>
   );
