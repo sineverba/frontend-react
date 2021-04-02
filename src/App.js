@@ -1,38 +1,31 @@
-import { Switch, Route } from "react-router-dom";
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
-import AccountsPresentational from "./js/components/presentationals/AccountsPresentational";
-import FooterPresentational from "./js/components/presentationals/FooterPresentational";
-import HomePresentational from "./js/components/presentationals/HomePresentational";
+import FooterPresentational from './js/components/presentationals/FooterPresentational';
+import { Router } from "./Router";
+import { useEffect } from 'react';
+import { connect } from "react-redux";
+import { actions as loginActions } from './js/actions/LoginActions';
 
-function App() {
-  return (
-    <>
-      <Container>
-        <Navigation />
-        <Row>
-          <Col>
-            <Switch>
-              <Route path="/accounts">
-                <h1>Accounts</h1>
-                <AccountsPresentational />
-              </Route>
-              <Route path="/">
-                <h1>Home</h1>
-                <HomePresentational />
-              </Route>
-            </Switch>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
+export const App = (props) => {
+
+    useEffect(() => {
+        props.checkToken()
+    }, [props])
+
+    return (
+
+        <Container>
+            <Navigation />
+            <Router />
             <FooterPresentational />
-          </Col>
-        </Row>
-      </Container>
-      
-    </>
-  );
-}
+        </Container>
+    );
+};
 
-export default App;
+export const mapDispatchToProps = (dispatch) => {
+    return {
+      checkToken: () => dispatch(loginActions.checkToken())
+    }
+  }
+  
+export default connect(null, mapDispatchToProps)(App);

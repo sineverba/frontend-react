@@ -1,18 +1,20 @@
 {
   "name": "frontend-react",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "private": true,
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "react": "^17.0.2",
     "react-bootstrap": "^1.5.2",
+    "react-data-table-component": "^6.11.7",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.3",
     "typescript": "^4.2.3"
   },
   "scripts": {
@@ -44,8 +46,8 @@
     "enzyme": "^3.11.0",
     "nock": "^13.0.11",
     "@testing-library/jest-dom": "^5.11.10",
-    "@testing-library/react": "^11.2.5",
-    "@testing-library/user-event": "^13.0.16",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.1",
     "redux-mock-store": "^1.5.4"
   }
 }

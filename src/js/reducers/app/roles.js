@@ -1,21 +1,22 @@
 const initialState = {
-    isLoading: true
+    isLoading: true,
+    roles: [],
 };
 
-const accounts = (state = initialState, action) => {
+const roles = (state = initialState, action) => {
     switch (action.type) {
-        case "TRY_FETCH_ACCOUNTS_COLLECTION": {
+        case "TRY_FETCH_ROLES_COLLECTION": {
             return Object.assign({}, state);
         }
       
-        case "FETCH_ACCOUNTS_COLLECTION_SUCCEEDED": {
+        case "FETCH_ROLES_COLLECTION_SUCCEEDED": {
             return Object.assign({}, state, {
                 isLoading: false,
-                accountsList: action.data,
+                roles: action.data && action.data.data && action.data.data.length > 0 ? action.data.data : [],
             });
         }
 
-        case "FETCH_ACCOUNTS_COLLECTION_FAILED": {
+        case "FETCH_ROLES_COLLECTION_FAILED": {
             return Object.assign({}, state, {
                 isLoading: false,
                 error: action.error
@@ -26,4 +27,4 @@ const accounts = (state = initialState, action) => {
     }  
     return state;
 }
-export default accounts;
+export default roles;

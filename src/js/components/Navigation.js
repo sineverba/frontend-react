@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { actions as loginActions } from "../actions/LoginActions";
+import { Fragment } from "react";
 
 export const Navigation = (props) => {
 
@@ -15,10 +16,13 @@ export const Navigation = (props) => {
       <Col>
         <ul className="list-unstyled list-inline">
           <li className="list-inline-item"><Link to="/">Home</Link></li>
-          <li className="list-inline-item"><Link to="/accounts">Accounts</Link></li>
           {
             props.accessToken &&
-            <li className="list-inline-item"><Link to="#" onClick={logout}>Logout</Link></li>
+              <Fragment>
+                <li className="list-inline-item"><Link to="/dashboard">Dashboard</Link></li>
+                <li className="list-inline-item"><Link to="/roles">Roles</Link></li>
+                <li className="list-inline-item"><Link to="#" onClick={logout}>Logout</Link></li>
+              </Fragment>
           }
         </ul>
       </Col>

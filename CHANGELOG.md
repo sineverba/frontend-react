@@ -1,4 +1,15 @@
-# 0.10.0
+# 0.11.0
++ Move router to separate component
++ Refactor components and remove unused
++ Add redirect if logged
++ Add roles calls
++ Refactor module names
++ Add datatable
++ Use token if set in localStorage
++ Fix change page on refresh
++ Bump dependencies
+
+## 0.10.0
 + Deploy with Node 14
 + Refactor store
 + Add tests

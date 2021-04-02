@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import ping from "./app/ping";
-import accounts from "./app/accounts";
 import login from "./app/login";
+import roles from "./app/roles";
 
 export default combineReducers(
   {
-    accounts,
     ping,
     login,
+    roles,
   }
 );

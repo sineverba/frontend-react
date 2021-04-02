@@ -11,6 +11,10 @@ export default class LoginActions extends GenericCRUDActions {
         return (dispatch: Function) => dispatch({type:"LOGOUT"});
     }
 
+    checkToken() {
+        return (dispatch: Function) => dispatch({type:"CHECK_TOKEN"});
+    }
+
 
 
 }
