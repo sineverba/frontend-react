@@ -6,6 +6,7 @@
 + Refactor module names
 + Add datatable
 + Use token if set in localStorage
++ Fix change page on refresh
 
 ## 0.10.0
 + Deploy with Node 14
