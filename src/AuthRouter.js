@@ -13,7 +13,9 @@ const AuthRouter = props => {
 };
 
 const mapStateToProps = (state) => ({
-    accessToken: state.login.accessToken ? state.login.accessToken : null
+    accessToken: localStorage.getItem('REACT_FE_ACCESS_TOKEN') ? 
+                    localStorage.getItem('REACT_FE_ACCESS_TOKEN') :
+                        state.login.accessToken ? state.login.accessToken : null
 });
 
 export default connect(mapStateToProps)(AuthRouter);
