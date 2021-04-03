@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { connect } from "react-redux";
+import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as rolesActions } from "../../actions/RolesAction";
 
 export const RolesPresentational = props => {
@@ -9,6 +10,7 @@ export const RolesPresentational = props => {
 
   useEffect(() => {
     if (!mounted) {
+        props.refreshToken();
         props.fetch();
         setMounted(true);
     }
@@ -54,7 +56,8 @@ const mapStateToProps = state => {
   
   const mapDispatchToProps = dispatch => {
     return {
-      fetch: () => dispatch(rolesActions.fetchAll())
+      fetch: () => dispatch(rolesActions.fetchAll()),
+      refreshToken: () => dispatch(refreshActions.refreshToken()),
     }
   }
   
