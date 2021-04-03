@@ -6,21 +6,20 @@ const initialState = {
 
 const login = (state = initialState, action) => {
     switch (action.type) {
-        case "TRY_POST_LOGIN": {
+        case "TRY_POST_LOGIN":
+        case "TRY_POST_REFRESH": {
             return Object.assign({}, state, {
                 isLoading: true
             });
         }
       
-        case "LOGIN_POST_SUCCEEDED": {
+        case "LOGIN_POST_SUCCEEDED":
+        case "REFRESH_POST_SUCCEEDED": {
             const accessToken = action.data && action.data.access_token ? action.data.access_token : null
             if (accessToken) {
                 const expiresIn = action.data.expires_in;
                 // Divide by 2, to have a security margin
                 const expireAt = moment().add(expiresIn/2, 'seconds').format('DD/MM/YYYY HH:mm:ss')
-                /*console.log(expireAt)
-                const isExpired = moment(expireAt, 'DD/MM/YYYY HH:mm:ss').isBefore(moment())
-                console.log(isExpired)*/
                 localStorage.setItem('REACT_FE_ACCESS_TOKEN', accessToken);
                 localStorage.setItem('REACT_FE_ACCESS_TOKEN_EXPIRES_AT', expireAt);
             }
@@ -30,7 +29,8 @@ const login = (state = initialState, action) => {
             });
         }
 
-        case "LOGIN_POST_FAILED": {
+        case "LOGIN_POST_FAILED":
+        case "REFRESH_POST_FAILED": {
             return Object.assign({}, state, {
                 isLoading: false
             });
