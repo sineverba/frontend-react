@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { connect } from "react-redux";
+import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as pingActions } from "../../actions/PingActions";
 
 export const FooterPresentational = props => {
@@ -9,6 +10,7 @@ export const FooterPresentational = props => {
 
   useEffect(() => {
     if (!mounted) {
+      props.refreshToken();
       props.fetch();
       setMounted(true);
     }
@@ -17,9 +19,9 @@ export const FooterPresentational = props => {
   return (
     <Row>
         <Col>
-            <div className="text-center">
+            <footer>
                 <p>Backend Api Version: {props.apiVersion ? props.apiVersion : 'N.D.'} - Frontend Version: {props.appVersion ? props.appVersion : 'N.D.'}</p>
-            </div>
+            </footer>
         </Col>
     </Row>
   );
@@ -35,7 +37,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetch: () => dispatch(pingActions.fetchAll())
+    fetch: () => dispatch(pingActions.fetchAll()),
+    refreshToken: () => dispatch(refreshActions.refreshToken()),
   }
 }
 

@@ -1,4 +1,9 @@
-# 0.11.0
+# 0.12.0
++ Add scss
++ Save expire token date
++ Add check and refresh token
+
+## 0.11.0
 + Move router to separate component
 + Refactor components and remove unused
 + Add redirect if logged
