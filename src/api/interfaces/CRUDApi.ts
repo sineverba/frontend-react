@@ -1,6 +1,6 @@
 export default interface CRUDApi {
 
-    fetchAll(): Promise<String>;
+    fetchAll(orderBy: String, orderWay: String): Promise<String>;
 
     post(data: Object): Promise<Object|String>;
     

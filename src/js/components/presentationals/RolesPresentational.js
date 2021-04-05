@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
 import { connect } from "react-redux";
 import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as rolesActions } from "../../actions/RolesAction";
+import Datatable from "../common/Datatable"
 
 export const RolesPresentational = props => {
 
@@ -11,7 +11,6 @@ export const RolesPresentational = props => {
   useEffect(() => {
     if (!mounted) {
         props.refreshToken();
-        props.fetch();
         setMounted(true);
     }
   }, [mounted, props])
@@ -35,14 +34,16 @@ export const RolesPresentational = props => {
         {
             name: 'Created at',
             sortable: true,
+            selector: 'created_at',
             cell: row => new Date(row.created_at).toLocaleDateString()
         }
     ];
 
   return (
-      <DataTable
+      <Datatable
           columns={columns}
           data={props.roles}
+          {...props}
       />
   );
 };
@@ -56,7 +57,7 @@ const mapStateToProps = state => {
   
   const mapDispatchToProps = dispatch => {
     return {
-      fetch: () => dispatch(rolesActions.fetchAll()),
+      fetch: (orderBy, orderWay) => dispatch(rolesActions.fetchAll(orderBy, orderWay)),
       refreshToken: () => dispatch(refreshActions.refreshToken()),
     }
   }

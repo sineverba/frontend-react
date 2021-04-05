@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Loading = () => {
   return (
     <div className="spinner-grow text-warning" role="status">

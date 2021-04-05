@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Loading from "./Loading";
+import Loading from "../common/Loading";
 import { Form, Button } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { actions as loginActions } from "../../actions/LoginActions";
