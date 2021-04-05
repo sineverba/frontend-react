@@ -1,10 +1,15 @@
 import CRUDApi from "./interfaces/CRUDApi";
 import api from "./api";
+import * as querystring from "querystring";
 
 export default abstract class AbstractCRUDApi implements CRUDApi {
 
-    fetchAll(): Promise<String> {
-        return api.get(`${this.getBaseURL()}`).then( res => res.data);
+    fetchAll(orderBy: string, orderWay: string): Promise<String> {
+        let qs = querystring.stringify({
+            sort: orderBy,
+            direction: orderWay
+        });
+        return api.get(`${this.getBaseURL()}?${qs}`).then(res => res.data);
     }
 
     post(data: Object): Promise<Object>{

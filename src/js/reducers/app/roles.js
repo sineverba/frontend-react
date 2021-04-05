@@ -6,7 +6,9 @@ const initialState = {
 const roles = (state = initialState, action) => {
     switch (action.type) {
         case "TRY_FETCH_ROLES_COLLECTION": {
-            return Object.assign({}, state);
+            return Object.assign({}, state, {
+                isLoading: true
+            });
         }
       
         case "FETCH_ROLES_COLLECTION_SUCCEEDED": {
