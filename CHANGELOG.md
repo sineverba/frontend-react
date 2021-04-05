@@ -1,6 +1,7 @@
 # Next version
 + Move datatable to separate component
 + Add orderBy and orderWay to fetchAll
++ Move loading component. Refactor RolesPresentationals
 
 ## 0.12.0
 + Add scss

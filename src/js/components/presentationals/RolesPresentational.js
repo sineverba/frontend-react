@@ -11,7 +11,6 @@ export const RolesPresentational = props => {
   useEffect(() => {
     if (!mounted) {
         props.refreshToken();
-        //props.fetch();
         setMounted(true);
     }
   }, [mounted, props])

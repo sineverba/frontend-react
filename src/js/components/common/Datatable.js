@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
+import Loading from './Loading';
 
 export const Datatable = (props) => {
 
@@ -9,6 +10,8 @@ export const Datatable = (props) => {
 
     useEffect(() => {
         console.log("DATATABLE > USE EFFECT")
+        console.log("Props >>")
+        console.log(props)
         console.log("DATATABLE > USE EFFECT orderBy", orderBy)
         console.log("DATATABLE > USE EFFECT orderWay", orderWay)
         if (!isMounted) {
@@ -25,6 +28,8 @@ export const Datatable = (props) => {
         const nextOrderWay = sortDirection;
         setOrderBy(nextOrderBy)
         setOrderWay(nextOrderWay)
+        console.log("Next order by >>>> ", nextOrderBy)
+        console.log("Next order way >>>> ", nextOrderWay)
         console.log("DATATABLE HANDLESORT")
         console.log("orderBy", nextOrderBy)
         console.log("orderWay", nextOrderWay)
@@ -32,9 +37,12 @@ export const Datatable = (props) => {
     }
 
     return (
+
         <DataTable
             columns={props.columns}
             data={props.data}
+            progressPending={props.isLoading}
+            progressComponent={<Loading />}
             onSort={handleSort}
         />
     );
