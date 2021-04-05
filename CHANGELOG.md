@@ -1,5 +1,6 @@
 # Next version
 + Move datatable to separate component
++ Add orderBy and orderWay to fetchAll
 
 ## 0.12.0
 + Add scss

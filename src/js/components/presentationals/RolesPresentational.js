@@ -11,7 +11,7 @@ export const RolesPresentational = props => {
   useEffect(() => {
     if (!mounted) {
         props.refreshToken();
-        props.fetch();
+        //props.fetch();
         setMounted(true);
     }
   }, [mounted, props])
@@ -35,6 +35,7 @@ export const RolesPresentational = props => {
         {
             name: 'Created at',
             sortable: true,
+            selector: 'created_at',
             cell: row => new Date(row.created_at).toLocaleDateString()
         }
     ];
@@ -43,6 +44,7 @@ export const RolesPresentational = props => {
       <Datatable
           columns={columns}
           data={props.roles}
+          {...props}
       />
   );
 };
@@ -56,7 +58,7 @@ const mapStateToProps = state => {
   
   const mapDispatchToProps = dispatch => {
     return {
-      fetch: () => dispatch(rolesActions.fetchAll()),
+      fetch: (orderBy, orderWay) => dispatch(rolesActions.fetchAll(orderBy, orderWay)),
       refreshToken: () => dispatch(refreshActions.refreshToken()),
     }
   }

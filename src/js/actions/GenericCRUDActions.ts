@@ -27,12 +27,13 @@ export default class GenericCRUDActions {
 
     }
 
-    fetchAll(){
+    fetchAll(orderBy: String, orderWay: String){
         return  (dispatch: Function) => {
             dispatch({
-                type: this.TRY_FETCH_COLLECTION
+                type: this.TRY_FETCH_COLLECTION,
+                orderBy, orderWay
             });
-            this.api.fetchAll()
+            this.api.fetchAll(orderBy, orderWay)
                 .then((data) => {
                     dispatch({
                         type: this.FETCH_COLLECTION_SUCCEEDED,
