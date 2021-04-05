@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
 import { connect } from "react-redux";
 import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as rolesActions } from "../../actions/RolesAction";
+import Datatable from "../common/Datatable"
 
 export const RolesPresentational = props => {
 
@@ -40,7 +40,7 @@ export const RolesPresentational = props => {
     ];
 
   return (
-      <DataTable
+      <Datatable
           columns={columns}
           data={props.roles}
       />
