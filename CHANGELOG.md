@@ -1,4 +1,7 @@
-# 0.12.0
+# Next version
++ Move datatable to separate component
+
+## 0.12.0
 + Add scss
 + Save expire token date
 + Add check and refresh token
