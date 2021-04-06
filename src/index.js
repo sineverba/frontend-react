@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import './scss/theme/sb-admin-2.scss';
 import './scss/app.scss';
 import App from './App';
 import { BrowserRouter as Router } from "react-router-dom";

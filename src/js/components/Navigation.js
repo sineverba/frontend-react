@@ -1,48 +1,57 @@
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import { actions as loginActions } from "../actions/LoginActions";
 import { Fragment } from "react";
+import { Button } from "react-bootstrap";
 
 export const Navigation = (props) => {
 
   const logout = (e) => {
-    e.preventDefault();
-    props.logout();
+      e.preventDefault();
+      props.logout();
   }
 
   return (
-    <Row>
-      <Col>
-        <ul className="list-unstyled list-inline">
-          <li className="list-inline-item"><Link to="/">Home</Link></li>
+      <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+          <Link to="/" className="sidebar-brand d-flex align-items-center justify-content-center">
+              <div className="sidebar-brand-text mx-3">FE React</div> 
+          </Link>
+          
+          <hr class="sidebar-divider my-0" />
+
+          <li className="nav-item"><Link to="/" className="nav-link"><span>Home</span></Link></li>
           {
             props.accessToken &&
-              <Fragment>
-                <li className="list-inline-item"><Link to="/dashboard">Dashboard</Link></li>
-                <li className="list-inline-item"><Link to="/roles">Roles</Link></li>
-                <li className="list-inline-item"><Link to="#" onClick={logout}>Logout</Link></li>
-              </Fragment>
+                <Fragment>
+                    <li className="nav-item"><Link to="/dashboard" className="nav-link"><span>Dashboard</span></Link></li>
+                    <li className="nav-item"><Link to="/roles" className="nav-link"><span>Roles</span></Link></li>
+                    <li className="nav-item"><Link to="#" className="nav-link" onClick={logout}><span>Logout</span></Link></li>
+                </Fragment>
           }
-        </ul>
-      </Col>
-    </Row>
+
+          <hr class="sidebar-divider d-none d-md-block" />
+          <Button className="rounded-circle border-0">
+              Close
+          </Button>
+
+        
+      </ul>
   );
 }
 
 export const mapStateToProps = (state) => {
-  return {
-    accessToken: state.login.accessToken ? state.login.accessToken : null
-  };
+    return {
+        accessToken: state.login.accessToken ? state.login.accessToken : null
+    };
 }
 
 export const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: () => dispatch(loginActions.logout())
-  }
+    return {
+      logout: () => dispatch(loginActions.logout())
+    }
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(Navigation);
