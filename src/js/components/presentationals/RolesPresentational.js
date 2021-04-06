@@ -51,13 +51,14 @@ export const RolesPresentational = props => {
 const mapStateToProps = state => {
     return {
       isLoading: state.roles && state.roles.isLoading ? state.roles.isLoading : null,
-      roles: state.roles.roles
+      roles: state.roles.roles,
+      total: state.roles.total,
     };
   }
   
   const mapDispatchToProps = dispatch => {
     return {
-      fetch: (orderBy, orderWay) => dispatch(rolesActions.fetchAll(orderBy, orderWay)),
+      fetch: (orderBy, orderWay, page, perPage) => dispatch(rolesActions.fetchAll(orderBy, orderWay, page, perPage)),
       refreshToken: () => dispatch(refreshActions.refreshToken()),
     }
   }

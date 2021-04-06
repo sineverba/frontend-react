@@ -1,6 +1,7 @@
 const initialState = {
     isLoading: true,
     roles: [],
+    total: 0,
 };
 
 const roles = (state = initialState, action) => {
@@ -15,6 +16,7 @@ const roles = (state = initialState, action) => {
             return Object.assign({}, state, {
                 isLoading: false,
                 roles: action.data && action.data.data && action.data.data.length > 0 ? action.data.data : [],
+                total: action.data && action.data.total ? action.data.total : 0
             });
         }
 
