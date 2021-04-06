@@ -18,7 +18,7 @@ export const FooterPresentational = props => {
   return (
       <footer className="sticky-footer bg-white">
           <div className="container my-auto">
-              <p>Backend Api Version: {props.apiVersion ? props.apiVersion : 'N.D.'} - Frontend Version: {props.appVersion ? props.appVersion : 'N.D.'}</p>
+              <p>Backend V.: {props.apiVersion ? props.apiVersion : 'N.D.'} - Frontend V.: {props.appVersion ? props.appVersion : 'N.D.'}</p>
           </div>
       </footer>
   );

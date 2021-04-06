@@ -1,5 +1,6 @@
 # Next version
 + Add theme
++ Add login layout
 
 ## 0.14.0
 + Add pagination

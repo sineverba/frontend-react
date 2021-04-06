@@ -3,9 +3,5 @@
 @import "~bootstrap/scss/mixins";
 @import 'variables.scss';
 @import "datatable.scss";
-
-footer {
-    text-align: center;
-    font-size: 88%;
-    margin-top: 50px;
-}
+@import "footer.scss";
+@import "form_login.scss";
