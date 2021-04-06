@@ -50,7 +50,7 @@ export const HomePresentational = props => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" value={password} onChange={handleForm} />
             </Form.Group>
-            <Button variant="primary" type="submit" onClick={submit}>
+            <Button variant="primary" type="submit" block onClick={submit}>
                 Submit
             </Button>
         </Form>

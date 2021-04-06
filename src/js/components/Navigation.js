@@ -1,48 +1,52 @@
 import { Link } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
-import { actions as loginActions } from "../actions/LoginActions";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import { Button } from "react-bootstrap";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 export const Navigation = (props) => {
 
-  const logout = (e) => {
-    e.preventDefault();
-    props.logout();
-  }
+    const [isToggled, setIsToggled] = useState(false)
 
-  return (
-    <Row>
-      <Col>
-        <ul className="list-unstyled list-inline">
-          <li className="list-inline-item"><Link to="/">Home</Link></li>
-          {
-            props.accessToken &&
-              <Fragment>
-                <li className="list-inline-item"><Link to="/dashboard">Dashboard</Link></li>
-                <li className="list-inline-item"><Link to="/roles">Roles</Link></li>
-                <li className="list-inline-item"><Link to="#" onClick={logout}>Logout</Link></li>
-              </Fragment>
-          }
-        </ul>
-      </Col>
-    </Row>
-  );
+    const toggleSidebar = () => {
+        setIsToggled(!isToggled);
+    }
+
+    return (
+            <ul className={`navbar-nav bg-gradient-primary sidebar sidebar-dark accordion ${isToggled ? 'toggled' : ''}`} id="accordionSidebar">
+                <Link to="/" className="sidebar-brand d-flex align-items-center justify-content-center">
+                    <div className="sidebar-brand-text mx-3">FE React</div> 
+                </Link>
+                
+                <hr className="sidebar-divider my-0" />
+                {
+                    props.accessToken &&
+                        <Fragment>
+                            <li className="nav-item"><Link to="/dashboard" className="nav-link"><span>Dashboard</span></Link></li>
+                            <li className="nav-item"><Link to="/roles" className="nav-link"><span>Roles</span></Link></li>
+                        </Fragment>
+                }
+
+                <hr className="sidebar-divider d-none d-md-block" />
+                <div className="text-center d-none d-md-inline">
+                    <Button className="rounded-circle border-0" onClick={toggleSidebar}>
+                        <FontAwesomeIcon icon={isToggled ? faArrowRight : faArrowLeft} />
+                    </Button>
+                </div>
+
+                
+            </ul>
+    );
 }
 
 export const mapStateToProps = (state) => {
-  return {
-    accessToken: state.login.accessToken ? state.login.accessToken : null
-  };
-}
-
-export const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: () => dispatch(loginActions.logout())
-  }
+    return {
+        accessToken: state.login.accessToken ? state.login.accessToken : null
+    };
 }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+    mapStateToProps,
+    null
 )(Navigation);
