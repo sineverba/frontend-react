@@ -1,5 +1,6 @@
 # Next version
 + Add pagination
++ Refactor datatable
 
 ## 0.13.0
 + Move datatable to separate component

@@ -4,26 +4,22 @@ import Loading from './Loading';
 
 export const Datatable = (props) => {
 
-    const [isMounted, setIsMounted] = useState(false);
     const [orderBy, setOrderBy] = useState('id');
     const [orderWay, setOrderWay] = useState('asc');
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(1);
 
+    const { fetch } = props;
+
     useEffect(() => {
-        if (!isMounted) {
-            props.fetch(orderBy, orderWay, page, perPage);
-            setIsMounted(true);
-        }
-    }, [isMounted, orderBy, orderWay, page, perPage, props])
+        fetch(orderBy, orderWay, page, perPage);
+    }, [fetch, orderBy, orderWay, page, perPage])
 
     const handleSort = (column, sortDirection) => {
-        console.log("Called handle sort")
         const nextOrderBy = column.selector;
         const nextOrderWay = sortDirection;
         setOrderBy(nextOrderBy)
         setOrderWay(nextOrderWay)
-        props.fetch(nextOrderBy, nextOrderWay, page, perPage);
     }
 
     const handleChangeRowsPerPage = (perPage, page) => {
@@ -31,13 +27,11 @@ export const Datatable = (props) => {
         const nextPage = page;
         setPerPage(nextPerPage);
         setPage(nextPage);
-        props.fetch(orderBy, orderWay, nextPage, nextPerPage);
     }
 
     const handleChangePage = (page) => {
         const nextPage = page;
         setPage(nextPage);
-        props.fetch(orderBy, orderWay, nextPage, perPage);
     }
 
     return (
