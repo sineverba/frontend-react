@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
+import { Card } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as rolesActions } from "../../actions/RolesAction";
@@ -41,12 +42,16 @@ export const RolesPresentational = props => {
 
   return (
         <Fragment>
-            <h1 class="h3 mb-4 text-gray-800">Roles</h1>
-            <Datatable
-                columns={columns}
-                data={props.roles}
-                {...props}
-            />
+            <h1 className="h3 mb-4 text-gray-800">Roles</h1>
+            <Card>
+                <Card.Body>
+                    <Datatable
+                        columns={columns}
+                        data={props.roles}
+                        {...props}
+                    />
+                </Card.Body>
+            </Card>
         </Fragment>
   );
 };

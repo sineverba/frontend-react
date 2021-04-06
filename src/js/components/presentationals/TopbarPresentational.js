@@ -1,17 +1,19 @@
 import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import { actions as loginActions } from "../../actions/LoginActions";
 
-const logout = () => {
-    //TODO
-    return;
-}
+export const TopbarPresentational = (props) => {
 
-export const TopbarPresentational = () => {
+    const logout = () => {
+        props.logout();
+    }
+
     return (
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
             <ul className="navbar-nav ml-auto">
                 <li className="nav-item dropdown no-arrow">
                     <Link to="#" className="nav-link dropdown-toggle" onClick={logout}>
-                        <span class="mr-2 d-none d-lg-inline text-gray-600 small">LOGOUT</span>
+                        <span className="mr-2 d-none d-lg-inline text-gray-600 small">LOGOUT</span>
                     </Link>
                 </li>
 
@@ -20,4 +22,13 @@ export const TopbarPresentational = () => {
     )
 }
 
-export default TopbarPresentational;
+export const mapDispatchToProps = (dispatch) => {
+    return {
+      logout: () => dispatch(loginActions.logout())
+    }
+}
+
+export default connect(
+    null,
+    mapDispatchToProps
+)(TopbarPresentational);
