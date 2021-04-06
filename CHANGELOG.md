@@ -1,4 +1,7 @@
-# 0.14.0
+# Next version
++ Add theme
+
+## 0.14.0
 + Add pagination
 + Refactor datatable
 

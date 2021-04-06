@@ -5,6 +5,7 @@ import { Router } from "./Router";
 import { useEffect } from 'react';
 import { connect } from "react-redux";
 import { actions as loginActions } from './js/actions/LoginActions';
+import TopbarPresentational from './js/components/presentationals/TopbarPresentational';
 
 export const App = (props) => {
 
@@ -13,12 +14,18 @@ export const App = (props) => {
     }, [props])
 
     return (
-
-        <Container>
+        <div id="wrapper">
             <Navigation />
-            <Router />
-            <FooterPresentational />
-        </Container>
+            <div id="content-wrapper" className="d-flex flex-column">
+                <div id="content">
+                    <TopbarPresentational />
+                    <Container fluid>
+                        <Router />
+                    </Container>
+                    <FooterPresentational />
+                </div>
+            </div>
+        </div>
     );
 };
 

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Col, Row } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as pingActions } from "../../actions/PingActions";
@@ -17,13 +16,11 @@ export const FooterPresentational = props => {
   }, [mounted, props])
 
   return (
-    <Row>
-        <Col>
-            <footer>
-                <p>Backend Api Version: {props.apiVersion ? props.apiVersion : 'N.D.'} - Frontend Version: {props.appVersion ? props.appVersion : 'N.D.'}</p>
-            </footer>
-        </Col>
-    </Row>
+      <footer className="sticky-footer bg-white">
+          <div className="container my-auto">
+              <p>Backend Api Version: {props.apiVersion ? props.apiVersion : 'N.D.'} - Frontend Version: {props.appVersion ? props.appVersion : 'N.D.'}</p>
+          </div>
+      </footer>
   );
 };
 
