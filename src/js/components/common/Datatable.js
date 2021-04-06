@@ -4,36 +4,34 @@ import Loading from './Loading';
 
 export const Datatable = (props) => {
 
-    const [isMounted, setIsMounted] = useState(false);
     const [orderBy, setOrderBy] = useState('id');
     const [orderWay, setOrderWay] = useState('asc');
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(1);
+
+    const { fetch } = props;
 
     useEffect(() => {
-        console.log("DATATABLE > USE EFFECT")
-        console.log("Props >>")
-        console.log(props)
-        console.log("DATATABLE > USE EFFECT orderBy", orderBy)
-        console.log("DATATABLE > USE EFFECT orderWay", orderWay)
-        if (!isMounted) {
-            console.log("DATATABLE IS NOT MOUNTED")
-            console.log("orderBy", orderBy)
-            console.log("orderWay", orderWay)
-            props.fetch(orderBy, orderWay);
-            setIsMounted(true);
-        }
-    }, [isMounted, orderBy, orderWay, props])
+        fetch(orderBy, orderWay, page, perPage);
+    }, [fetch, orderBy, orderWay, page, perPage])
 
     const handleSort = (column, sortDirection) => {
         const nextOrderBy = column.selector;
         const nextOrderWay = sortDirection;
         setOrderBy(nextOrderBy)
         setOrderWay(nextOrderWay)
-        console.log("Next order by >>>> ", nextOrderBy)
-        console.log("Next order way >>>> ", nextOrderWay)
-        console.log("DATATABLE HANDLESORT")
-        console.log("orderBy", nextOrderBy)
-        console.log("orderWay", nextOrderWay)
-        props.fetch(nextOrderBy, nextOrderWay);
+    }
+
+    const handleChangeRowsPerPage = (perPage, page) => {
+        const nextPerPage = perPage;
+        const nextPage = page;
+        setPerPage(nextPerPage);
+        setPage(nextPage);
+    }
+
+    const handleChangePage = (page) => {
+        const nextPage = page;
+        setPage(nextPage);
     }
 
     return (
@@ -43,7 +41,14 @@ export const Datatable = (props) => {
             data={props.data}
             progressPending={props.isLoading}
             progressComponent={<Loading />}
+            pagination
+            paginationServer
+            paginationTotalRows={props.total}
+            paginationPerPage={perPage}
+            paginationRowsPerPageOptions={[1, 10, 15, 20, 25, 30]}
             onSort={handleSort}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+            onChangePage={handleChangePage}
         />
     );
     

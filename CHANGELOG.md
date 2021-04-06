@@ -1,4 +1,8 @@
-# 0.13.0
+# 0.14.0
++ Add pagination
++ Refactor datatable
+
+## 0.13.0
 + Move datatable to separate component
 + Add orderBy and orderWay to fetchAll
 + Move loading component. Refactor RolesPresentationals
