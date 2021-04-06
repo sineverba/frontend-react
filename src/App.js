@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap';
+import { Card, Col, Container, Row } from 'react-bootstrap';
 import Navigation from "./js/components/Navigation";
 import FooterPresentational from './js/components/presentationals/FooterPresentational';
 import { Router } from "./Router";
@@ -14,25 +14,45 @@ export const App = (props) => {
     }, [props])
 
     return (
-        <div id="wrapper">
-            <Navigation />
-            <div id="content-wrapper" className="d-flex flex-column">
-                <div id="content">
-                    <TopbarPresentational />
-                    <Container fluid>
-                        <Router />
-                    </Container>
-                    <FooterPresentational />
+        props.accessToken ?
+            <div id="wrapper">
+                <Navigation />
+                <div id="content-wrapper" className="d-flex flex-column">
+                    <div id="content">
+                        <TopbarPresentational />
+                        <Container fluid>
+                            <Router />
+                        </Container>
+                        <FooterPresentational />
+                    </div>
                 </div>
             </div>
-        </div>
+        :
+            <Container>
+                <Row className="justify-content-center">
+                    <Col md={4}>
+                        <Card className="shadow" id="container-login">
+                            <Card.Body>
+                                <Router />
+                            </Card.Body>
+                        </Card>
+                        <FooterPresentational />
+                    </Col>
+                </Row>
+            </Container>
     );
 };
 
 export const mapDispatchToProps = (dispatch) => {
     return {
-      checkToken: () => dispatch(loginActions.checkToken())
+        checkToken: () => dispatch(loginActions.checkToken())
     }
-  }
+}
+
+const mapStateToProps = (state) => ({
+    accessToken: localStorage.getItem('REACT_FE_ACCESS_TOKEN') ? 
+                    localStorage.getItem('REACT_FE_ACCESS_TOKEN') :
+                        state.login.accessToken ? state.login.accessToken : null
+});
   
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
