@@ -47,6 +47,6 @@ describe('Testing Footer Component', () => {
 
   it('Should renders footer text', () => {
     const { getByText } = render(<FooterPresentational store={store} />);
-    expect(getByText('Backend Api Version: 1.1.1 - Frontend Version: 2.2.2')).toBeTruthy();
+    expect(getByText('Backend V.: 1.1.1 - Frontend V.: 2.2.2')).toBeTruthy();
   });
 })
