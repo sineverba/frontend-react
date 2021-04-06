@@ -4,10 +4,12 @@ import * as querystring from "querystring";
 
 export default abstract class AbstractCRUDApi implements CRUDApi {
 
-    fetchAll(orderBy: string, orderWay: string): Promise<String> {
+    fetchAll(orderBy: string, orderWay: string, page: number, perPage: number): Promise<String> {
         let qs = querystring.stringify({
             sort: orderBy,
-            direction: orderWay
+            direction: orderWay,
+            page: page,
+            per_page: perPage
         });
         return api.get(`${this.getBaseURL()}?${qs}`).then(res => res.data);
     }

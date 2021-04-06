@@ -7,33 +7,37 @@ export const Datatable = (props) => {
     const [isMounted, setIsMounted] = useState(false);
     const [orderBy, setOrderBy] = useState('id');
     const [orderWay, setOrderWay] = useState('asc');
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(1);
 
     useEffect(() => {
-        console.log("DATATABLE > USE EFFECT")
-        console.log("Props >>")
-        console.log(props)
-        console.log("DATATABLE > USE EFFECT orderBy", orderBy)
-        console.log("DATATABLE > USE EFFECT orderWay", orderWay)
         if (!isMounted) {
-            console.log("DATATABLE IS NOT MOUNTED")
-            console.log("orderBy", orderBy)
-            console.log("orderWay", orderWay)
-            props.fetch(orderBy, orderWay);
+            props.fetch(orderBy, orderWay, page, perPage);
             setIsMounted(true);
         }
-    }, [isMounted, orderBy, orderWay, props])
+    }, [isMounted, orderBy, orderWay, page, perPage, props])
 
     const handleSort = (column, sortDirection) => {
+        console.log("Called handle sort")
         const nextOrderBy = column.selector;
         const nextOrderWay = sortDirection;
         setOrderBy(nextOrderBy)
         setOrderWay(nextOrderWay)
-        console.log("Next order by >>>> ", nextOrderBy)
-        console.log("Next order way >>>> ", nextOrderWay)
-        console.log("DATATABLE HANDLESORT")
-        console.log("orderBy", nextOrderBy)
-        console.log("orderWay", nextOrderWay)
-        props.fetch(nextOrderBy, nextOrderWay);
+        props.fetch(nextOrderBy, nextOrderWay, page, perPage);
+    }
+
+    const handleChangeRowsPerPage = (perPage, page) => {
+        const nextPerPage = perPage;
+        const nextPage = page;
+        setPerPage(nextPerPage);
+        setPage(nextPage);
+        props.fetch(orderBy, orderWay, nextPage, nextPerPage);
+    }
+
+    const handleChangePage = (page) => {
+        const nextPage = page;
+        setPage(nextPage);
+        props.fetch(orderBy, orderWay, nextPage, perPage);
     }
 
     return (
@@ -43,7 +47,14 @@ export const Datatable = (props) => {
             data={props.data}
             progressPending={props.isLoading}
             progressComponent={<Loading />}
+            pagination
+            paginationServer
+            paginationTotalRows={props.total}
+            paginationPerPage={perPage}
+            paginationRowsPerPageOptions={[1, 10, 15, 20, 25, 30]}
             onSort={handleSort}
+            onChangeRowsPerPage={handleChangeRowsPerPage}
+            onChangePage={handleChangePage}
         />
     );
     
