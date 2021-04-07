@@ -1,4 +1,7 @@
-# 0.15.0
+# Next version
++ Add dashboard
+
+## 0.15.0
 + Add theme
 + Add login layout
 + Complete layout
