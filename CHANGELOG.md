@@ -1,4 +1,7 @@
-# 0.16.0
+# Next version
++ Add refresh token to Dashboard
+
+## 0.16.0
 + Add dashboard
 
 ## 0.15.0
