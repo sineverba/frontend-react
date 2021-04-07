@@ -1,4 +1,4 @@
-# Next version
+# 0.16.0
 + Add dashboard
 
 ## 0.15.0
