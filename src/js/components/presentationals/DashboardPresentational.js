@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { actions as statsActions } from '../../actions/StatsActions';
+import { actions as refreshActions } from '../../actions/RefreshActions';
 import Loading from '../common/Loading';
 import Kpi from "../common/Kpi";
 import { Row } from 'react-bootstrap';
@@ -12,6 +13,7 @@ export const DashboardPresentational = props => {
 
   useEffect(() => {
     if (!mounted) {
+        props.refreshToken();
         props.fetch();
         setMounted(true);
     }
@@ -54,7 +56,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetch: () => dispatch(statsActions.fetchAll())
+        fetch: () => dispatch(statsActions.fetchAll()),
+        refreshToken: () => dispatch(refreshActions.refreshToken()),
     }
 }
 
