@@ -56,7 +56,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        fetch: () => dispatch(statsActions.fetchAll()),
+        fetch: () => dispatch(statsActions.fetchItems()),
         refreshToken: () => dispatch(refreshActions.refreshToken()),
     }
 }
