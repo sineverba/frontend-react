@@ -37,8 +37,7 @@ export const Datatable = (props) => {
     const handleRowClicked = ({id}, e) => {
         e.stopPropagation();
         if (e.target.type === 'button') {
-            console.log(id)
-            return;
+            props.openModalDetail(id);
         }
         return;
     }

@@ -2,6 +2,8 @@ const initialState = {
     isLoading: true,
     roles: [],
     total: 0,
+    showModal: false,
+    idDetail: null,
 };
 
 const roles = (state = initialState, action) => {
@@ -34,6 +36,20 @@ const roles = (state = initialState, action) => {
                 isLoading: false,
                 error: action.error
             });
+        }
+
+        case "OPEN_ROLE_MODAL_DETAIL": {
+            console.log(action)
+            return Object.assign({}, state, {
+                showModal: true,
+                idDetail: action.id
+            })
+        }
+
+        case "CLOSE_ROLE_MODAL_DETAIL": {
+            return Object.assign({}, state, {
+                showModal: false,
+            })
         }
           
         default: {}
