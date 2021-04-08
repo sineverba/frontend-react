@@ -8,6 +8,9 @@ export default class GenericCRUDActions {
     TRY_FETCH_COLLECTION: String;
     FETCH_COLLECTION_SUCCEEDED: String;
     FETCH_COLLECTION_FAILED: String;
+    TRY_FETCH: String;
+    FETCH_SUCCEEDED: String;
+    FETCH_FAILED: String;
     TRY_POST: String;
     POST_SUCCEEDED: String;
     POST_FAILED: String;
@@ -21,6 +24,9 @@ export default class GenericCRUDActions {
         this.TRY_FETCH_COLLECTION = `TRY_FETCH_${ucEntityName}_COLLECTION`;
         this.FETCH_COLLECTION_SUCCEEDED = `FETCH_${ucEntityName}_COLLECTION_SUCCEEDED`;
         this.FETCH_COLLECTION_FAILED = `FETCH_${ucEntityName}_COLLECTION_FAILED`;
+        this.TRY_FETCH = `TRY_FETCH_${ucEntityName}`;
+        this.FETCH_SUCCEEDED = `FETCH_${ucEntityName}_SUCCEEDED`;
+        this.FETCH_FAILED = `FETCH_${ucEntityName}_FAILED`;
         this.TRY_POST = `TRY_POST_${ucEntityName}`;
         this.POST_SUCCEEDED = `${ucEntityName}_POST_SUCCEEDED`;
         this.POST_FAILED = `${ucEntityName}_POST_FAILED`;
@@ -43,6 +49,28 @@ export default class GenericCRUDActions {
                 .catch((error) => {
                     dispatch({
                         type: this.FETCH_COLLECTION_FAILED,
+                        error
+                    });
+                });
+        }
+    }
+
+    fetchSingle(id: String) {
+        return (dispatch: Function) => {
+            dispatch({
+                type: this.TRY_FETCH,
+                id
+            });
+            this.api.fetchSingle(id)
+                .then((data) => {
+                    dispatch({
+                        type: this.FETCH_SUCCEEDED,
+                        data
+                    });
+                })
+                .catch((error) => {
+                    dispatch({
+                        type: this.FETCH_FAILED,
                         error
                     });
                 });

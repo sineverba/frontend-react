@@ -7,7 +7,7 @@ export const Datatable = (props) => {
     const [orderBy, setOrderBy] = useState('id');
     const [orderWay, setOrderWay] = useState('asc');
     const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(1);
+    const [perPage, setPerPage] = useState(10);
 
     const { fetch } = props;
 
@@ -34,6 +34,15 @@ export const Datatable = (props) => {
         setPage(nextPage);
     }
 
+    const handleRowClicked = ({id}, e) => {
+        e.stopPropagation();
+        if (e.target.type === 'button') {
+            console.log(id)
+            return;
+        }
+        return;
+    }
+
     return (
 
         <DataTable
@@ -45,7 +54,8 @@ export const Datatable = (props) => {
             paginationServer
             paginationTotalRows={props.total}
             paginationPerPage={perPage}
-            paginationRowsPerPageOptions={[1, 10, 15, 20, 25, 30]}
+            paginationRowsPerPageOptions={[10, 15, 20, 25, 30]}
+            onRowClicked={handleRowClicked}
             onSort={handleSort}
             onChangeRowsPerPage={handleChangeRowsPerPage}
             onChangePage={handleChangePage}
