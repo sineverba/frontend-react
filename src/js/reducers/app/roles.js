@@ -38,7 +38,7 @@ const roles = (state = initialState, action) => {
             });
         }
 
-        case "OPEN_ROLE_MODAL_DETAIL": {
+        case "OPEN_ROLES_MODAL_DETAIL": {
             console.log(action)
             return Object.assign({}, state, {
                 showModal: true,
@@ -46,7 +46,7 @@ const roles = (state = initialState, action) => {
             })
         }
 
-        case "CLOSE_ROLE_MODAL_DETAIL": {
+        case "CLOSE_ROLES_MODAL_DETAIL": {
             return Object.assign({}, state, {
                 showModal: false,
             })

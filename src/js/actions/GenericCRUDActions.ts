@@ -14,6 +14,9 @@ export default class GenericCRUDActions {
     TRY_POST: String;
     POST_SUCCEEDED: String;
     POST_FAILED: String;
+
+    OPEN_MODAL_DETAIL: String;
+    CLOSE_MODAL_DETAIL: String;
     
     constructor(entityName: String, api: CRUDApi){
 
@@ -30,6 +33,9 @@ export default class GenericCRUDActions {
         this.TRY_POST = `TRY_POST_${ucEntityName}`;
         this.POST_SUCCEEDED = `${ucEntityName}_POST_SUCCEEDED`;
         this.POST_FAILED = `${ucEntityName}_POST_FAILED`;
+
+        this.OPEN_MODAL_DETAIL = `OPEN_${ucEntityName}_MODAL_DETAIL`;
+        this.CLOSE_MODAL_DETAIL = `CLOSE_${ucEntityName}_MODAL_DETAIL`;
 
     }
 
@@ -97,6 +103,14 @@ export default class GenericCRUDActions {
                     });
                 });
         }
+    }
+
+    openModalDetail(id: String) {
+        return (dispatch: Function) => dispatch({type: this.OPEN_MODAL_DETAIL, id});
+    }
+
+    closeModalDetail() {
+        return (dispatch: Function) => dispatch({type: this.CLOSE_MODAL_DETAIL});
     }
 
 }
