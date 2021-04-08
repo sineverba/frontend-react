@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 import { connect } from "react-redux";
 import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as rolesActions } from "../../actions/RolesAction";
@@ -7,21 +7,21 @@ import Datatable from "../common/Datatable"
 
 export const RolesPresentational = props => {
 
-  const [mounted, setMounted] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    if (!mounted) {
-        props.refreshToken();
-        setMounted(true);
-    }
-  }, [mounted, props])
-
+    useEffect(() => {
+        if (!mounted) {
+            props.refreshToken();
+            setMounted(true);
+        }
+    }, [mounted, props])
 
     const columns = [
         {
             name: 'ID',
             selector: 'id',
             sortable: true,
+            cell: row => <Button variant="link" data-tag="allowRowEvents">{row.id}</Button>
         },
         {
             name: 'Role',
@@ -58,9 +58,9 @@ export const RolesPresentational = props => {
 
 const mapStateToProps = state => {
     return {
-      isLoading: state.roles && state.roles.isLoading ? state.roles.isLoading : null,
-      roles: state.roles.roles,
-      total: state.roles.total,
+        isLoading: state.roles && state.roles.isLoading ? state.roles.isLoading : null,
+        roles: state.roles.roles,
+        total: state.roles.total,
     };
   }
   

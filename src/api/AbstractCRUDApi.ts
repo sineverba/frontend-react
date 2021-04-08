@@ -14,6 +14,10 @@ export default abstract class AbstractCRUDApi implements CRUDApi {
         return api.get(`${this.getBaseURL()}?${qs}`).then(res => res.data);
     }
 
+    fetchSingle(id: String): Promise<Object> {
+        return api.get(`${this.getBaseURL()}/${id}`).then(res => res.data);
+    }
+
     post(data: Object): Promise<Object>{
         return api.post(`${this.getBaseURL()}`, data).then(res => res.data);
     }
