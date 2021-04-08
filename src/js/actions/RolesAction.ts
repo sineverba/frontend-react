@@ -9,14 +9,6 @@ export default class RolesActions extends GenericCRUDActions {
         
     }
 
-    openModalDetail(id: String) {
-        return (dispatch: Function) => dispatch({type: "OPEN_ROLE_MODAL_DETAIL", id});
-    }
-
-    closeModalDetail() {
-        return (dispatch: Function) => dispatch({type: "CLOSE_ROLE_MODAL_DETAIL"});
-    }
-
 }
 
 export const actions = new RolesActions();
