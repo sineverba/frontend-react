@@ -73,7 +73,7 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = dispatch => {
     return {
-        fetch: (orderBy, orderWay, page, perPage) => dispatch(rolesActions.fetchAll(orderBy, orderWay, page, perPage)),
+        fetch: (orderBy, orderWay, page, perPage) => dispatch(rolesActions.fetchItems(orderBy, orderWay, page, perPage)),
         openModalDetail: (id) => dispatch(rolesActions.openModalDetail(id)),
         closeModalDetail: () => dispatch(rolesActions.closeModalDetail()),
         refreshToken: () => dispatch(refreshActions.refreshToken()),

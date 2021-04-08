@@ -34,7 +34,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetch: () => dispatch(pingActions.fetchAll()),
+    fetch: () => dispatch(pingActions.fetchItems()),
     refreshToken: () => dispatch(refreshActions.refreshToken()),
   }
 }
