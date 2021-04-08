@@ -4,7 +4,7 @@ import * as querystring from "querystring";
 
 export default abstract class AbstractCRUDApi implements CRUDApi {
 
-    fetchAll(orderBy: string, orderWay: string, page: number, perPage: number): Promise<String> {
+    fetchItems(orderBy: string, orderWay: string, page: number, perPage: number): Promise<String> {
         let qs = querystring.stringify({
             sort: orderBy,
             direction: orderWay,
@@ -12,6 +12,10 @@ export default abstract class AbstractCRUDApi implements CRUDApi {
             per_page: perPage
         });
         return api.get(`${this.getBaseURL()}?${qs}`).then(res => res.data);
+    }
+
+    fetchItem(id: String): Promise<Object> {
+        return api.get(`${this.getBaseURL()}/${id}`).then(res => res.data);
     }
 
     post(data: Object): Promise<Object>{

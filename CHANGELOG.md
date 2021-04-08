@@ -1,4 +1,13 @@
-# 0.16.0
+# 0.17.0
++ Add refresh token to Dashboard
++ Add single fetch. Prepare for call detail
++ Add open close modal
++ Refactor actions
++ Refactor fetchItems and fetchItem
++ Fetch single item on modal open
++ Bump dependencies
+
+## 0.16.0
 + Add dashboard
 
 ## 0.15.0
