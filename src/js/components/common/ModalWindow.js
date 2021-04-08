@@ -1,10 +1,18 @@
+import { useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 
 const ModalWindow = (props) => {
+
+    const { fetchItem, show, idDetail } = props;
+
+    useEffect(() => {
+        fetchItem(idDetail)
+    }, [fetchItem, idDetail])
+
     return (
-        <Modal show={props.show} onHide={props.closeModalDetail}>
+        <Modal show={show} onHide={props.closeModalDetail}>
             <Modal.Body>
-                <h1>{props.idDetail}</h1>
+                {props.componentDetail}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="primary" onClick={props.closeModalDetail}>Close</Button>

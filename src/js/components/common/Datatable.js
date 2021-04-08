@@ -9,11 +9,11 @@ export const Datatable = (props) => {
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
 
-    const { fetch } = props;
+    const { fetchItems } = props;
 
     useEffect(() => {
-        fetch(orderBy, orderWay, page, perPage);
-    }, [fetch, orderBy, orderWay, page, perPage])
+        fetchItems(orderBy, orderWay, page, perPage);
+    }, [fetchItems, orderBy, orderWay, page, perPage])
 
     const handleSort = (column, sortDirection) => {
         const nextOrderBy = column.selector;
