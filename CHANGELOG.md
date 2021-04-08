@@ -5,6 +5,7 @@
 + Refactor actions
 + Refactor fetchItems and fetchItem
 + Fetch single item on modal open
++ Bump dependencies
 
 ## 0.16.0
 + Add dashboard
