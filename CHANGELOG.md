@@ -1,4 +1,4 @@
-# Next version
+# 0.17.0
 + Add refresh token to Dashboard
 + Add single fetch. Prepare for call detail
 + Add open close modal
