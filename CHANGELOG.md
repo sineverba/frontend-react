@@ -4,6 +4,7 @@
 + Add open close modal
 + Refactor actions
 + Refactor fetchItems and fetchItem
++ Fetch single item on modal open
 
 ## 0.16.0
 + Add dashboard

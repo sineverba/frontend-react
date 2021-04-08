@@ -1,6 +1,7 @@
 const initialState = {
     isLoading: true,
-    roles: [],
+    items: [],
+    item: null,
     total: 0,
     showModal: false,
     idDetail: null,
@@ -18,7 +19,7 @@ const roles = (state = initialState, action) => {
         case "FETCH_ROLES_COLLECTION_SUCCEEDED": {
             return Object.assign({}, state, {
                 isLoading: false,
-                roles: action.data && action.data.data && action.data.data.length > 0 ? action.data.data : [],
+                items: action.data && action.data.data && action.data.data.length > 0 ? action.data.data : [],
                 total: action.data && action.data.total ? action.data.total : 0
             });
         }
@@ -26,7 +27,7 @@ const roles = (state = initialState, action) => {
         case "FETCH_ROLES_SUCCEEDED": {
             return Object.assign({}, state, {
                 isLoading: false,
-                role: action.data ? action.data : null
+                item: action.data ? action.data : null
             });
         }
 

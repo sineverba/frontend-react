@@ -5,6 +5,7 @@ import { actions as refreshActions } from '../../actions/RefreshActions';
 import { actions as rolesActions } from "../../actions/RolesAction";
 import Datatable from "../common/Datatable"
 import ModalWindow from '../common/ModalWindow';
+import RoleDetail from '../details/RoleDetail';
 
 export const RolesPresentational = props => {
 
@@ -48,13 +49,18 @@ export const RolesPresentational = props => {
                 <Card.Body>
                     <Datatable
                         columns={columns}
-                        data={props.roles}
+                        data={props.items}
                         {...props}
                     />
                 </Card.Body>
             </Card>
             <ModalWindow
                 show={props.show}
+                componentDetail={
+                    <RoleDetail
+                        item={props.item}
+                    />
+                }
                 {...props}
             />
         </Fragment>
@@ -64,7 +70,8 @@ export const RolesPresentational = props => {
 const mapStateToProps = state => {
     return {
         isLoading: state.roles && state.roles.isLoading ? state.roles.isLoading : null,
-        roles: state.roles.roles,
+        items: state.roles.items,
+        item: state.roles.item,
         total: state.roles.total,
         show: state.roles.showModal,
         idDetail: state.roles.idDetail,
@@ -73,7 +80,8 @@ const mapStateToProps = state => {
   
 const mapDispatchToProps = dispatch => {
     return {
-        fetch: (orderBy, orderWay, page, perPage) => dispatch(rolesActions.fetchItems(orderBy, orderWay, page, perPage)),
+        fetchItems: (orderBy, orderWay, page, perPage) => dispatch(rolesActions.fetchItems(orderBy, orderWay, page, perPage)),
+        fetchItem: (id) => dispatch(rolesActions.fetchItem(id)),
         openModalDetail: (id) => dispatch(rolesActions.openModalDetail(id)),
         closeModalDetail: () => dispatch(rolesActions.closeModalDetail()),
         refreshToken: () => dispatch(refreshActions.refreshToken()),
