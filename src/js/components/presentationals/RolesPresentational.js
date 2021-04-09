@@ -70,6 +70,7 @@ export const RolesPresentational = props => {
 const mapStateToProps = state => {
     return {
         isLoading: state.roles && state.roles.isLoading ? state.roles.isLoading : null,
+        isLoadingItem: state.roles.isLoadingItem,
         items: state.roles.items,
         item: state.roles.item,
         total: state.roles.total,
