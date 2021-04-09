@@ -23,8 +23,8 @@ export const App = (props) => {
                         <Container fluid>
                             <Router />
                         </Container>
-                        <FooterPresentational />
                     </div>
+                    <FooterPresentational />
                 </div>
             </div>
         :

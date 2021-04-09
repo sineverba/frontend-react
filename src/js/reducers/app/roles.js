@@ -1,5 +1,6 @@
 const initialState = {
     isLoading: true,
+    isLoadingItem: true,
     items: [],
     item: null,
     total: 0,
@@ -9,10 +10,15 @@ const initialState = {
 
 const roles = (state = initialState, action) => {
     switch (action.type) {
-        case "TRY_FETCH_ROLES_COLLECTION":
+        case "TRY_FETCH_ROLES_COLLECTION": {
+            return Object.assign({}, state, {
+                isLoading: true,
+            });
+        }
+
         case "TRY_FETCH_ROLES": {
             return Object.assign({}, state, {
-                isLoading: true
+                isLoadingItem: true,
             });
         }
       
@@ -26,7 +32,7 @@ const roles = (state = initialState, action) => {
 
         case "FETCH_ROLES_SUCCEEDED": {
             return Object.assign({}, state, {
-                isLoading: false,
+                isLoadingItem: false,
                 item: action.data ? action.data : null
             });
         }
@@ -35,6 +41,7 @@ const roles = (state = initialState, action) => {
         case "FETCH_ROLES_FAILED": {
             return Object.assign({}, state, {
                 isLoading: false,
+                isLoadingItem: false,
                 error: action.error
             });
         }
